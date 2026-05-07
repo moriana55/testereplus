@@ -4,6 +4,7 @@ import { ArrowLeft } from "lucide-react";
 import { VariantPicker } from "@/components/variant-picker";
 import { sampleProductWithVariants } from "@/lib/variants";
 import { ProductCard } from "@/components/product-card";
+import { ComplementaryProduct } from "@/components/complementary-product";
 import { getProductsByCategory } from "@/lib/data";
 
 export const metadata: Metadata = {
@@ -52,6 +53,8 @@ export default function NetmakVariantPage() {
               </div>
             ))}
           </div>
+
+          <ComplementaryProduct />
         </div>
 
         {/* Variant Picker */}
