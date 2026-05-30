@@ -11,8 +11,9 @@ import {
   Phone,
   ChevronDown,
   User,
+  Heart,
 } from "lucide-react";
-import { categories } from "@/lib/data";
+import { categories, getRootCategories, getChildCategories } from "@/lib/data";
 import { useCart } from "@/lib/cart-context";
 
 export function Header() {
@@ -25,7 +26,7 @@ export function Header() {
   function handleSearch(e: FormEvent) {
     e.preventDefault();
     if (searchQuery.trim()) {
-      router.push(`/urunler?q=${encodeURIComponent(searchQuery.trim())}`);
+      router.push(`/ara?q=${encodeURIComponent(searchQuery.trim())}`);
       setSearchQuery("");
       setMenuOpen(false);
     }
@@ -50,6 +51,12 @@ export function Header() {
             </Link>
             <Link href="/blog" className="hover:text-accent-light transition-colors hidden sm:inline">
               Blog
+            </Link>
+            <Link href="/kargo-takip" className="hover:text-accent-light transition-colors hidden sm:inline">
+              Kargo Takip
+            </Link>
+            <Link href="/sss" className="hover:text-accent-light transition-colors hidden sm:inline">
+              SSS
             </Link>
             <Link href="/iletisim" className="hover:text-accent-light transition-colors">
               İletişim
@@ -107,6 +114,9 @@ export function Header() {
               </svg>
               WhatsApp
             </a>
+            <Link href="/favorilerim" className="p-2.5 rounded-xl hover:bg-bg-secondary transition-colors hidden sm:block">
+              <Heart size={20} className="text-text-secondary" />
+            </Link>
             <button className="p-2.5 rounded-xl hover:bg-bg-secondary transition-colors hidden sm:block">
               <User size={20} className="text-text-secondary" />
             </button>
@@ -143,16 +153,38 @@ export function Header() {
               </button>
               {catOpen && (
                 <div className="absolute top-full left-0 w-80 bg-white border border-border rounded-b-xl shadow-xl shadow-black/10 z-50">
-                  {categories.map((cat) => (
-                    <Link
-                      key={cat.slug}
-                      href={`/kategori/${cat.slug}`}
-                      className="flex items-center justify-between px-5 py-3.5 text-sm text-text-secondary hover:bg-accent-bg hover:text-accent transition-colors border-b border-border-light last:border-0 last:rounded-b-xl"
-                    >
-                      <span className="font-medium">{cat.name}</span>
-                      <span className="text-xs text-text-muted bg-bg-secondary px-2 py-0.5 rounded-full">{cat.productCount}</span>
-                    </Link>
-                  ))}
+                  {getRootCategories().map((root) => {
+                    const children = getChildCategories(root.slug);
+                    return (
+                      <div key={root.slug} className="border-b border-border-light last:border-0">
+                        {children.length > 0 ? (
+                          <>
+                            <div className="px-5 py-2.5 text-xs font-bold text-text-muted uppercase tracking-wider bg-bg-secondary">
+                              {root.name}
+                            </div>
+                            {children.map((child) => (
+                              <Link
+                                key={child.slug}
+                                href={`/kategori/${child.slug}`}
+                                className="flex items-center justify-between px-5 pl-8 py-3 text-sm text-text-secondary hover:bg-accent-bg hover:text-accent transition-colors"
+                              >
+                                <span className="font-medium">{child.name}</span>
+                                <span className="text-xs text-text-muted bg-bg-secondary px-2 py-0.5 rounded-full">{child.productCount}</span>
+                              </Link>
+                            ))}
+                          </>
+                        ) : (
+                          <Link
+                            href={`/kategori/${root.slug}`}
+                            className="flex items-center justify-between px-5 py-3.5 text-sm text-text-secondary hover:bg-accent-bg hover:text-accent transition-colors"
+                          >
+                            <span className="font-medium">{root.name}</span>
+                            <span className="text-xs text-text-muted bg-bg-secondary px-2 py-0.5 rounded-full">{root.productCount}</span>
+                          </Link>
+                        )}
+                      </div>
+                    );
+                  })}
                 </div>
               )}
             </div>
@@ -199,16 +231,33 @@ export function Header() {
               <Link href="/urunler" className="block px-4 py-3 text-sm font-medium rounded-xl hover:bg-bg-secondary" onClick={() => setMenuOpen(false)}>
                 Tüm Ürünler
               </Link>
-              {categories.map((cat) => (
-                <Link
-                  key={cat.slug}
-                  href={`/kategori/${cat.slug}`}
-                  className="block px-4 py-3 text-sm text-text-secondary rounded-xl hover:bg-bg-secondary"
-                  onClick={() => setMenuOpen(false)}
-                >
-                  {cat.name}
-                </Link>
-              ))}
+              {getRootCategories().map((root) => {
+                const children = getChildCategories(root.slug);
+                return children.length > 0 ? (
+                  <div key={root.slug}>
+                    <p className="px-4 py-2 text-xs font-bold text-text-muted uppercase tracking-wider">{root.name}</p>
+                    {children.map((child) => (
+                      <Link
+                        key={child.slug}
+                        href={`/kategori/${child.slug}`}
+                        className="block px-4 pl-8 py-3 text-sm text-text-secondary rounded-xl hover:bg-bg-secondary"
+                        onClick={() => setMenuOpen(false)}
+                      >
+                        {child.name}
+                      </Link>
+                    ))}
+                  </div>
+                ) : (
+                  <Link
+                    key={root.slug}
+                    href={`/kategori/${root.slug}`}
+                    className="block px-4 py-3 text-sm text-text-secondary rounded-xl hover:bg-bg-secondary"
+                    onClick={() => setMenuOpen(false)}
+                  >
+                    {root.name}
+                  </Link>
+                );
+              })}
               <div className="border-t border-border my-2" />
               <Link href="/blog" className="block px-4 py-3 text-sm rounded-xl hover:bg-bg-secondary" onClick={() => setMenuOpen(false)}>
                 Blog

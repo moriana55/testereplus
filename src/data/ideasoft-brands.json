@@ -1,0 +1,86 @@
+[
+  {
+    "id": 1,
+    "slug": "bosch",
+    "name": "Bosch",
+    "url": "https://www.testereplus.com/marka/bosch"
+  },
+  {
+    "id": 2,
+    "slug": "flamex",
+    "name": "Flamex",
+    "url": "https://www.testereplus.com/marka/flamex"
+  },
+  {
+    "id": 3,
+    "slug": "freud",
+    "name": "Freud",
+    "url": "https://www.testereplus.com/marka/freud"
+  },
+  {
+    "id": 4,
+    "slug": "gkg",
+    "name": "Gkg",
+    "url": "https://www.testereplus.com/marka/gkg"
+  },
+  {
+    "id": 5,
+    "slug": "izartools",
+    "name": "Izartools",
+    "url": "https://www.testereplus.com/marka/izartools"
+  },
+  {
+    "id": 6,
+    "slug": "junior",
+    "name": "Junior",
+    "url": "https://www.testereplus.com/marka/junior"
+  },
+  {
+    "id": 7,
+    "slug": "kohertz",
+    "name": "Kohertz",
+    "url": "https://www.testereplus.com/marka/kohertz"
+  },
+  {
+    "id": 8,
+    "slug": "konig",
+    "name": "Konig",
+    "url": "https://www.testereplus.com/marka/konig"
+  },
+  {
+    "id": 9,
+    "slug": "krabbe",
+    "name": "Krabbe",
+    "url": "https://www.testereplus.com/marka/krabbe"
+  },
+  {
+    "id": 10,
+    "slug": "kronberg",
+    "name": "Kronberg",
+    "url": "https://www.testereplus.com/marka/kronberg"
+  },
+  {
+    "id": 11,
+    "slug": "netmak",
+    "name": "Netmak",
+    "url": "https://www.testereplus.com/marka/netmak"
+  },
+  {
+    "id": 12,
+    "slug": "onci",
+    "name": "Onci",
+    "url": "https://www.testereplus.com/marka/onci"
+  },
+  {
+    "id": 13,
+    "slug": "schuster",
+    "name": "Schuster",
+    "url": "https://www.testereplus.com/marka/schuster"
+  },
+  {
+    "id": 14,
+    "slug": "tideway",
+    "name": "Tideway",
+    "url": "https://www.testereplus.com/marka/tideway"
+  }
+]

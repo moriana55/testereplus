@@ -36,12 +36,7 @@ export default function RootLayout({
   return (
     <html lang="tr" className={`${inter.variable} antialiased`}>
       <body className="min-h-screen flex flex-col bg-bg-primary text-text-primary font-[var(--font-inter)]">
-        <CartProvider>
-          <Header />
-          <main className="flex-1">{children}</main>
-          <Footer />
-          <CartDrawer />
-        </CartProvider>
+        {children}
       </body>
     </html>
   );

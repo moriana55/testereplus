@@ -2,9 +2,9 @@
 
 import { useState, useMemo } from "react";
 import { Search } from "lucide-react";
-import Link from "next/link";
 import { type Product, type Category } from "@/lib/data";
 import { ProductCard } from "./product-card";
+import { CategoryTree } from "./category-tree";
 
 interface Props {
   products: Product[];
@@ -64,52 +64,24 @@ export function ProductListing({ products, categories, activeCategory, initialSe
   return (
     <div className="flex flex-col lg:flex-row gap-8">
       {/* Sidebar */}
-      <aside className="lg:w-64 shrink-0">
-        <div className="bg-white border border-border rounded-2xl p-5 sticky top-36">
-          <h3 className="text-sm font-semibold uppercase tracking-wider text-text-primary mb-4">Kategoriler</h3>
-          <ul className="space-y-0.5">
-            {!activeCategory && (
-              <li>
-                <Link
-                  href="/urunler"
-                  className="block px-3 py-2.5 text-sm rounded-xl bg-accent-bg text-accent font-semibold"
-                >
-                  Tüm Ürünler ({products.length})
-                </Link>
-              </li>
-            )}
-            {categories.map((cat) => (
-              <li key={cat.slug}>
-                <Link
-                  href={`/kategori/${cat.slug}`}
-                  className={`flex items-center justify-between px-3 py-2.5 text-sm rounded-xl transition-colors ${
-                    cat.slug === activeCategory
-                      ? "bg-accent-bg text-accent font-semibold"
-                      : "text-text-secondary hover:bg-bg-secondary hover:text-text-primary"
-                  }`}
-                >
-                  <span>{cat.name}</span>
-                  <span className="text-xs text-text-muted bg-bg-secondary px-2 py-0.5 rounded-full">{cat.productCount}</span>
-                </Link>
-              </li>
-            ))}
-          </ul>
+      <aside className="lg:w-64 shrink-0 space-y-6">
+        <CategoryTree activeSlug={activeCategory} />
 
-          <div className="mt-6 pt-6 border-t border-border">
-            <h3 className="text-sm font-semibold uppercase tracking-wider text-text-primary mb-4">Markalar</h3>
-            <div className="space-y-2">
-              {brands.map((brand) => (
-                <label key={brand} className="flex items-center gap-2.5 text-sm text-text-secondary cursor-pointer hover:text-text-primary">
-                  <input
-                    type="checkbox"
-                    checked={selectedBrands.has(brand)}
-                    onChange={() => toggleBrand(brand)}
-                    className="accent-accent w-4 h-4 rounded"
-                  />
-                  {brand}
-                </label>
-              ))}
-            </div>
+        {/* Brand filter */}
+        <div className="bg-white border border-border rounded-2xl p-5">
+          <h3 className="text-sm font-semibold uppercase tracking-wider text-text-primary mb-4">Markalar</h3>
+          <div className="space-y-2">
+            {brands.map((brand) => (
+              <label key={brand} className="flex items-center gap-2.5 text-sm text-text-secondary cursor-pointer hover:text-text-primary">
+                <input
+                  type="checkbox"
+                  checked={selectedBrands.has(brand)}
+                  onChange={() => toggleBrand(brand)}
+                  className="accent-accent w-4 h-4 rounded"
+                />
+                {brand}
+              </label>
+            ))}
           </div>
         </div>
       </aside>

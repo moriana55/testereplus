@@ -91,10 +91,19 @@ export function Footer() {
                 </Link>
               </li>
               <li>
-                <span className="text-sm">Kargo & Teslimat</span>
+                <Link href="/sss" className="text-sm hover:text-accent-light transition-colors">
+                  Sıkça Sorulan Sorular
+                </Link>
               </li>
               <li>
-                <span className="text-sm">İade Politikası</span>
+                <Link href="/kargo-takip" className="text-sm hover:text-accent-light transition-colors">
+                  Kargo Takip
+                </Link>
+              </li>
+              <li>
+                <Link href="/karsilastir" className="text-sm hover:text-accent-light transition-colors">
+                  Ürün Karşılaştır
+                </Link>
               </li>
             </ul>
 

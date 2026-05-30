@@ -100,6 +100,13 @@ export function CartDrawer() {
               <span className="text-xl font-bold text-accent">{formatPrice(totalPrice)}</span>
             </div>
             <p className="text-xs text-green-600 font-medium">Ücretsiz kargo dahil</p>
+            <Link
+              href="/sepet"
+              onClick={() => setIsOpen(false)}
+              className="flex items-center justify-center gap-2 w-full bg-accent hover:bg-accent-hover text-white py-3.5 rounded-xl font-semibold transition-colors"
+            >
+              Sepete Git
+            </Link>
             <a
               href={`https://wa.me/905551234567?text=${encodeURIComponent(
                 `Merhaba, sipariş vermek istiyorum:\n${items.map((i) => `- ${i.name} (x${i.quantity}) ${formatPrice(i.price * i.quantity)}`).join("\n")}\n\nToplam: ${formatPrice(totalPrice)}`

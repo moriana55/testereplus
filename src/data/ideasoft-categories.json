@@ -1,0 +1,1148 @@
+[
+  {
+    "id": 1,
+    "slug": "daire-testere-kullanimi",
+    "name": "Daire Testere Kullanimi",
+    "url": "https://www.testereplus.com/blog/kategori/daire-testere-kullanimi"
+  },
+  {
+    "id": 2,
+    "slug": "freze-bicaklari",
+    "name": "Freze Bıçaklari",
+    "url": "https://www.testereplus.com/blog/kategori/freze-bicaklari"
+  },
+  {
+    "id": 3,
+    "slug": "genel",
+    "name": "Genel",
+    "url": "https://www.testereplus.com/blog/kategori/genel"
+  },
+  {
+    "id": 4,
+    "slug": "kesici-takim-bakimi",
+    "name": "Kesici Takim Bakimi",
+    "url": "https://www.testereplus.com/blog/kategori/kesici-takim-bakimi"
+  },
+  {
+    "id": 5,
+    "slug": "kesici-takim-secimi",
+    "name": "Kesici Takim Secimi",
+    "url": "https://www.testereplus.com/blog/kategori/kesici-takim-secimi"
+  },
+  {
+    "id": 6,
+    "slug": "planer-planya-bicaklari",
+    "name": "Planer Planya Bıçaklari",
+    "url": "https://www.testereplus.com/blog/kategori/planer-planya-bicaklari"
+  },
+  {
+    "id": 7,
+    "slug": "proje-ipuclari-ve-ornekler",
+    "name": "Proje Ipuclari Ve Ornekler",
+    "url": "https://www.testereplus.com/blog/kategori/proje-ipuclari-ve-ornekler"
+  },
+  {
+    "id": 8,
+    "slug": "1-4-daire-kenar-yuvarlama-dik-freze-bicaklari",
+    "name": "1 4 Daire Kenar Yuvarlama Dik Freze Bıçaklari",
+    "url": "https://www.testereplus.com/kategori/1-4-daire-kenar-yuvarlama-dik-freze-bicaklari"
+  },
+  {
+    "id": 9,
+    "slug": "45-derece-profil-dik-freze-bicaklari",
+    "name": "45 Derece Profil Dik Freze Bıçaklari",
+    "url": "https://www.testereplus.com/kategori/45-derece-profil-dik-freze-bicaklari"
+  },
+  {
+    "id": 10,
+    "slug": "acik-agiz-anahtar",
+    "name": "Acik Agiz Anahtar",
+    "url": "https://www.testereplus.com/kategori/acik-agiz-anahtar"
+  },
+  {
+    "id": 11,
+    "slug": "ahsap-icin-serit-testereler-martin-miller-austria",
+    "name": "Ahsap Icin Serit Testereler Martin Miller Austria",
+    "url": "https://www.testereplus.com/kategori/ahsap-icin-serit-testereler-martin-miller-austria"
+  },
+  {
+    "id": 12,
+    "slug": "ahsap-testereler-1",
+    "name": "Ahsap Testereler 1",
+    "url": "https://www.testereplus.com/kategori/ahsap-testereler-1"
+  },
+  {
+    "id": 13,
+    "slug": "aksesuarlar",
+    "name": "Aksesuarlar",
+    "url": "https://www.testereplus.com/kategori/aksesuarlar"
+  },
+  {
+    "id": 14,
+    "slug": "al-tin-inox-paslanmaz-celikler-icin",
+    "name": "Al Tin Inox Paslanmaz Celikler Icin",
+    "url": "https://www.testereplus.com/kategori/al-tin-inox-paslanmaz-celikler-icin"
+  },
+  {
+    "id": 15,
+    "slug": "allen-anahtar",
+    "name": "Allen Anahtar",
+    "url": "https://www.testereplus.com/kategori/allen-anahtar"
+  },
+  {
+    "id": 16,
+    "slug": "alm-kertme-testere-grubu",
+    "name": "Alm Kertme Testere Grubu",
+    "url": "https://www.testereplus.com/kategori/alm-kertme-testere-grubu"
+  },
+  {
+    "id": 17,
+    "slug": "alm-kompozit-kesme-testere-bicagi",
+    "name": "Alm Kompozit Kesme Testere Bıçağı",
+    "url": "https://www.testereplus.com/kategori/alm-kompozit-kesme-testere-bicagi"
+  },
+  {
+    "id": 18,
+    "slug": "aluminyum-kesim-testereleri-1",
+    "name": "Aluminyum Kesim Testereleri 1",
+    "url": "https://www.testereplus.com/kategori/aluminyum-kesim-testereleri-1"
+  },
+  {
+    "id": 19,
+    "slug": "aluminyum-mentese-bicak-seti",
+    "name": "Aluminyum Mentese Bıçak Seti",
+    "url": "https://www.testereplus.com/kategori/aluminyum-mentese-bicak-seti"
+  },
+  {
+    "id": 20,
+    "slug": "ay-anahtar",
+    "name": "Ay Anahtar",
+    "url": "https://www.testereplus.com/kategori/ay-anahtar"
+  },
+  {
+    "id": 21,
+    "slug": "ayarlanabilir-arkalik-acma-grubu",
+    "name": "Ayarlanabilir Arkalik Acma Grubu",
+    "url": "https://www.testereplus.com/kategori/ayarlanabilir-arkalik-acma-grubu"
+  },
+  {
+    "id": 22,
+    "slug": "ayarli-kanal-acma-testereleri",
+    "name": "Ayarli Kanal Acma Testereleri",
+    "url": "https://www.testereplus.com/kategori/ayarli-kanal-acma-testereleri"
+  },
+  {
+    "id": 23,
+    "slug": "balik-sirti-bicaklar",
+    "name": "Balik Sirti Bıçaklar",
+    "url": "https://www.testereplus.com/kategori/balik-sirti-bicaklar"
+  },
+  {
+    "id": 24,
+    "slug": "beton-asfalt-kesim-daire-testere-bicaklari",
+    "name": "Beton Asfalt Kesim Daire Testere Bıçaklari",
+    "url": "https://www.testereplus.com/kategori/beton-asfalt-kesim-daire-testere-bicaklari"
+  },
+  {
+    "id": 25,
+    "slug": "bi-metal-buat-setler",
+    "name": "Bi Metal Buat Setler",
+    "url": "https://www.testereplus.com/kategori/bi-metal-buat-setler"
+  },
+  {
+    "id": 26,
+    "slug": "bi-metal-m42-serit-testere",
+    "name": "Bi Metal M42 Serit Testere",
+    "url": "https://www.testereplus.com/kategori/bi-metal-m42-serit-testere"
+  },
+  {
+    "id": 27,
+    "slug": "bi-metal-panclar-hss",
+    "name": "Bi Metal Panclar Hss",
+    "url": "https://www.testereplus.com/kategori/bi-metal-panclar-hss"
+  },
+  {
+    "id": 28,
+    "slug": "bicak-adaptoru",
+    "name": "Bıçak Adaptoru",
+    "url": "https://www.testereplus.com/kategori/bicak-adaptoru"
+  },
+  {
+    "id": 29,
+    "slug": "bicak-agizli-daire-testereler-kagit-kumas-kesmek-icin",
+    "name": "Bıçak Agizli Daire Testereler Kagit Kumas Kesmek Icin",
+    "url": "https://www.testereplus.com/kategori/bicak-agizli-daire-testereler-kagit-kumas-kesmek-icin"
+  },
+  {
+    "id": 30,
+    "slug": "bilyali-kapi-gobegi-freze-uclari",
+    "name": "Bilyali Kapi Gobegi Freze Uclari",
+    "url": "https://www.testereplus.com/kategori/bilyali-kapi-gobegi-freze-uclari"
+  },
+  {
+    "id": 31,
+    "slug": "bilyali-temizleme-bicaklari-1",
+    "name": "Bilyali Temizleme Bıçaklari 1",
+    "url": "https://www.testereplus.com/kategori/bilyali-temizleme-bicaklari-1"
+  },
+  {
+    "id": 32,
+    "slug": "bilyasiz-tarama-matkaplari-1",
+    "name": "Bilyasiz Tarama Matkaplari 1",
+    "url": "https://www.testereplus.com/kategori/bilyasiz-tarama-matkaplari-1"
+  },
+  {
+    "id": 33,
+    "slug": "boy-kafa-kesme-testereleri",
+    "name": "Boy Kafa Kesme Testereleri",
+    "url": "https://www.testereplus.com/kategori/boy-kafa-kesme-testereleri"
+  },
+  {
+    "id": 34,
+    "slug": "carbide-betopan-kesim-daire-testere-bicaklari",
+    "name": "Carbide Betopan Kesim Daire Testere Bıçaklari",
+    "url": "https://www.testereplus.com/kategori/carbide-betopan-kesim-daire-testere-bicaklari"
+  },
+  {
+    "id": 35,
+    "slug": "carbide-serit-testereler",
+    "name": "Carbide Serit Testereler",
+    "url": "https://www.testereplus.com/kategori/carbide-serit-testereler"
+  },
+  {
+    "id": 36,
+    "slug": "cay-kesme-daire-testere-bicaklari",
+    "name": "Cay Kesme Daire Testere Bıçaklari",
+    "url": "https://www.testereplus.com/kategori/cay-kesme-daire-testere-bicaklari"
+  },
+  {
+    "id": 37,
+    "slug": "cermet-daire-testereler",
+    "name": "Cermet Daire Testereler",
+    "url": "https://www.testereplus.com/kategori/cermet-daire-testereler"
+  },
+  {
+    "id": 38,
+    "slug": "cita-dik-freze-bicaklari",
+    "name": "Cita Dik Freze Bıçaklari",
+    "url": "https://www.testereplus.com/kategori/cita-dik-freze-bicaklari"
+  },
+  {
+    "id": 39,
+    "slug": "civili-ahsap-testereleri",
+    "name": "Civili Ahsap Testereleri",
+    "url": "https://www.testereplus.com/kategori/civili-ahsap-testereleri"
+  },
+  {
+    "id": 40,
+    "slug": "cizici-testereler",
+    "name": "Cizici Testereler",
+    "url": "https://www.testereplus.com/kategori/cizici-testereler"
+  },
+  {
+    "id": 41,
+    "slug": "cnc-karbur-uclar",
+    "name": "Cnc Karbur Uclar",
+    "url": "https://www.testereplus.com/kategori/cnc-karbur-uclar"
+  },
+  {
+    "id": 42,
+    "slug": "cnc-tutucu-adaptorleri",
+    "name": "Cnc Tutucu Adaptorleri",
+    "url": "https://www.testereplus.com/kategori/cnc-tutucu-adaptorleri"
+  },
+  {
+    "id": 43,
+    "slug": "coklu-delik-matkaplari",
+    "name": "Coklu Delik Matkaplari",
+    "url": "https://www.testereplus.com/kategori/coklu-delik-matkaplari"
+  },
+  {
+    "id": 44,
+    "slug": "coklu-dilme-testereleri",
+    "name": "Coklu Dilme Testereleri",
+    "url": "https://www.testereplus.com/kategori/coklu-dilme-testereleri"
+  },
+  {
+    "id": 45,
+    "slug": "coklu-materyal-kesim-testereleri",
+    "name": "Coklu Materyal Kesim Testereleri",
+    "url": "https://www.testereplus.com/kategori/coklu-materyal-kesim-testereleri"
+  },
+  {
+    "id": 46,
+    "slug": "cumbali-mentese-yeri-acma-bicagi-bilyasiz",
+    "name": "Cumbali Mentese Yeri Acma Bıçağı Bilyasiz",
+    "url": "https://www.testereplus.com/kategori/cumbali-mentese-yeri-acma-bicagi-bilyasiz"
+  },
+  {
+    "id": 47,
+    "slug": "cumbali-ve-yaprak-mentese-bicaklari",
+    "name": "Cumbali Ve Yaprak Mentese Bıçaklari",
+    "url": "https://www.testereplus.com/kategori/cumbali-ve-yaprak-mentese-bicaklari"
+  },
+  {
+    "id": 48,
+    "slug": "daire-testere-bicaklari-1",
+    "name": "Daire Testere Bıçaklari 1",
+    "url": "https://www.testereplus.com/kategori/daire-testere-bicaklari-1"
+  },
+  {
+    "id": 49,
+    "slug": "daire-testere-bilezigi",
+    "name": "Daire Testere Bilezigi",
+    "url": "https://www.testereplus.com/kategori/daire-testere-bilezigi"
+  },
+  {
+    "id": 50,
+    "slug": "dairesel-metal-profil-kesme-testereleri",
+    "name": "Dairesel Metal Profil Kesme Testereleri",
+    "url": "https://www.testereplus.com/kategori/dairesel-metal-profil-kesme-testereleri"
+  },
+  {
+    "id": 51,
+    "slug": "degistirilebilir-jiletli-aci-ayarli-freze-topu",
+    "name": "Degistirilebilir Jiletli Aci Ayarli Freze Topu",
+    "url": "https://www.testereplus.com/kategori/degistirilebilir-jiletli-aci-ayarli-freze-topu"
+  },
+  {
+    "id": 52,
+    "slug": "degistirilebilir-jiletli-ayarlanabilir-zivana",
+    "name": "Degistirilebilir Jiletli Ayarlanabilir Zivana",
+    "url": "https://www.testereplus.com/kategori/degistirilebilir-jiletli-ayarlanabilir-zivana"
+  },
+  {
+    "id": 53,
+    "slug": "degistirilebilir-jiletli-ayarli-kanal-freze",
+    "name": "Degistirilebilir Jiletli Ayarli Kanal Freze",
+    "url": "https://www.testereplus.com/kategori/degistirilebilir-jiletli-ayarli-kanal-freze"
+  },
+  {
+    "id": 54,
+    "slug": "degistirilebilir-jiletli-bicaklar-yedek-parcalar",
+    "name": "Degistirilebilir Jiletli Bıçaklar Yedek Parcalar",
+    "url": "https://www.testereplus.com/kategori/degistirilebilir-jiletli-bicaklar-yedek-parcalar"
+  },
+  {
+    "id": 55,
+    "slug": "degistirilebilir-jiletli-german-lamba-acma-top-grubu",
+    "name": "Degistirilebilir Jiletli German Lamba Acma Top Grubu",
+    "url": "https://www.testereplus.com/kategori/degistirilebilir-jiletli-german-lamba-acma-top-grubu"
+  },
+  {
+    "id": 56,
+    "slug": "degistirilebilir-jiletli-helis-bicak-topu",
+    "name": "Degistirilebilir Jiletli Helis Bıçak Topu",
+    "url": "https://www.testereplus.com/kategori/degistirilebilir-jiletli-helis-bicak-topu"
+  },
+  {
+    "id": 57,
+    "slug": "degistirilebilir-jiletli-helis-temizleme-bicaklari",
+    "name": "Degistirilebilir Jiletli Helis Temizleme Bıçaklari",
+    "url": "https://www.testereplus.com/kategori/degistirilebilir-jiletli-helis-temizleme-bicaklari"
+  },
+  {
+    "id": 58,
+    "slug": "degistirilebilir-jiletli-kapi-lamba-bicaklari",
+    "name": "Degistirilebilir Jiletli Kapi Lamba Bıçaklari",
+    "url": "https://www.testereplus.com/kategori/degistirilebilir-jiletli-kapi-lamba-bicaklari"
+  },
+  {
+    "id": 59,
+    "slug": "degistirilebilir-jiletli-kenar-yuvarlama-bicaklari",
+    "name": "Degistirilebilir Jiletli Kenar Yuvarlama Bıçaklari",
+    "url": "https://www.testereplus.com/kategori/degistirilebilir-jiletli-kenar-yuvarlama-bicaklari"
+  },
+  {
+    "id": 60,
+    "slug": "degistirilebilir-jiletli-lamba-bicaklari",
+    "name": "Degistirilebilir Jiletli Lamba Bıçaklari",
+    "url": "https://www.testereplus.com/kategori/degistirilebilir-jiletli-lamba-bicaklari"
+  },
+  {
+    "id": 61,
+    "slug": "degistirilebilir-jiletli-on-cizicili-freze-toplari",
+    "name": "Degistirilebilir Jiletli On Cizicili Freze Toplari",
+    "url": "https://www.testereplus.com/kategori/degistirilebilir-jiletli-on-cizicili-freze-toplari"
+  },
+  {
+    "id": 62,
+    "slug": "degistirilebilir-jiletli-on-freze-temizleme-bicagi",
+    "name": "Degistirilebilir Jiletli On Freze Temizleme Bıçağı",
+    "url": "https://www.testereplus.com/kategori/degistirilebilir-jiletli-on-freze-temizleme-bicagi"
+  },
+  {
+    "id": 63,
+    "slug": "degistirilebilir-jiletli-parmak-freze",
+    "name": "Degistirilebilir Jiletli Parmak Freze",
+    "url": "https://www.testereplus.com/kategori/degistirilebilir-jiletli-parmak-freze"
+  },
+  {
+    "id": 64,
+    "slug": "degistirilebilir-jiletli-profil-bicaklari",
+    "name": "Degistirilebilir Jiletli Profil Bıçaklari",
+    "url": "https://www.testereplus.com/kategori/degistirilebilir-jiletli-profil-bicaklari"
+  },
+  {
+    "id": 65,
+    "slug": "degistirilebilir-jiletli-profil-kapak-grubu-bicaklari",
+    "name": "Degistirilebilir Jiletli Profil Kapak Grubu Bıçaklari",
+    "url": "https://www.testereplus.com/kategori/degistirilebilir-jiletli-profil-kapak-grubu-bicaklari"
+  },
+  {
+    "id": 66,
+    "slug": "degistirilebilir-jiletli-tabla-temizleme",
+    "name": "Degistirilebilir Jiletli Tabla Temizleme",
+    "url": "https://www.testereplus.com/kategori/degistirilebilir-jiletli-tabla-temizleme"
+  },
+  {
+    "id": 67,
+    "slug": "degistirilebilir-uclu-bicaklar",
+    "name": "Degistirilebilir Uclu Bıçaklar",
+    "url": "https://www.testereplus.com/kategori/degistirilebilir-uclu-bicaklar"
+  },
+  {
+    "id": 68,
+    "slug": "degistirilebilir-uclu-jiletli-bicaklar",
+    "name": "Degistirilebilir Uclu Jiletli Bıçaklar",
+    "url": "https://www.testereplus.com/kategori/degistirilebilir-uclu-jiletli-bicaklar"
+  },
+  {
+    "id": 69,
+    "slug": "dekubaj-bicaklari",
+    "name": "Dekubaj Bıçaklari",
+    "url": "https://www.testereplus.com/kategori/dekubaj-bicaklari"
+  },
+  {
+    "id": 70,
+    "slug": "delikli-profiller-rustik-kapi-konter-profilleri-bicaklari",
+    "name": "Delikli Profiller Rustik Kapi Konter Profilleri Bıçaklari",
+    "url": "https://www.testereplus.com/kategori/delikli-profiller-rustik-kapi-konter-profilleri-bicaklari"
+  },
+  {
+    "id": 71,
+    "slug": "derz-genisletme-daire-testere-bicaklari",
+    "name": "Derz Genisletme Daire Testere Bıçaklari",
+    "url": "https://www.testereplus.com/kategori/derz-genisletme-daire-testere-bicaklari"
+  },
+  {
+    "id": 72,
+    "slug": "dia-45-derece-pahli-ebatlama-parmak-freze-bicaklari",
+    "name": "Dia 45 Derece Pahli Ebatlama Parmak Freze Bıçaklari",
+    "url": "https://www.testereplus.com/kategori/dia-45-derece-pahli-ebatlama-parmak-freze-bicaklari"
+  },
+  {
+    "id": 73,
+    "slug": "dia-cizici-testereler",
+    "name": "Dia Cizici Testereler",
+    "url": "https://www.testereplus.com/kategori/dia-cizici-testereler"
+  },
+  {
+    "id": 74,
+    "slug": "dia-ebatlama-freze-bicagi",
+    "name": "Dia Ebatlama Freze Bıçağı",
+    "url": "https://www.testereplus.com/kategori/dia-ebatlama-freze-bicagi"
+  },
+  {
+    "id": 75,
+    "slug": "dia-freze-bicaklari",
+    "name": "Dia Freze Bıçaklari",
+    "url": "https://www.testereplus.com/kategori/dia-freze-bicaklari"
+  },
+  {
+    "id": 76,
+    "slug": "dia-kanal-frezeler",
+    "name": "Dia Kanal Frezeler",
+    "url": "https://www.testereplus.com/kategori/dia-kanal-frezeler"
+  },
+  {
+    "id": 77,
+    "slug": "dia-mentese-matkaplari",
+    "name": "Dia Mentese Matkaplari",
+    "url": "https://www.testereplus.com/kategori/dia-mentese-matkaplari"
+  },
+  {
+    "id": 78,
+    "slug": "dia-on-freze-temizleme-bicaklari",
+    "name": "Dia On Freze Temizleme Bıçaklari",
+    "url": "https://www.testereplus.com/kategori/dia-on-freze-temizleme-bicaklari"
+  },
+  {
+    "id": 79,
+    "slug": "dia-panel-ebatlama-testereleri",
+    "name": "Dia Panel Ebatlama Testereleri",
+    "url": "https://www.testereplus.com/kategori/dia-panel-ebatlama-testereleri"
+  },
+  {
+    "id": 80,
+    "slug": "dia-parmak-freze-bicaklari",
+    "name": "Dia Parmak Freze Bıçaklari",
+    "url": "https://www.testereplus.com/kategori/dia-parmak-freze-bicaklari"
+  },
+  {
+    "id": 81,
+    "slug": "dia-pvc-bicaklari",
+    "name": "Dia Pvc Bıçaklari",
+    "url": "https://www.testereplus.com/kategori/dia-pvc-bicaklari"
+  },
+  {
+    "id": 82,
+    "slug": "dia-radus-ebatlama-freze-bicaklari",
+    "name": "Dia Radus Ebatlama Freze Bıçaklari",
+    "url": "https://www.testereplus.com/kategori/dia-radus-ebatlama-freze-bicaklari"
+  },
+  {
+    "id": 83,
+    "slug": "dia-raf-kanalli-bicaklari",
+    "name": "Dia Raf Kanalli Bıçaklari",
+    "url": "https://www.testereplus.com/kategori/dia-raf-kanalli-bicaklari"
+  },
+  {
+    "id": 84,
+    "slug": "dia-standart-olcu-testereler",
+    "name": "Dia Standart Olcu Testereler",
+    "url": "https://www.testereplus.com/kategori/dia-standart-olcu-testereler"
+  },
+  {
+    "id": 85,
+    "slug": "dia-takma-uclu-freze-temizleme-bicaklari",
+    "name": "Dia Takma Uclu Freze Temizleme Bıçaklari",
+    "url": "https://www.testereplus.com/kategori/dia-takma-uclu-freze-temizleme-bicaklari"
+  },
+  {
+    "id": 86,
+    "slug": "dia-testereler",
+    "name": "Dia Testereler",
+    "url": "https://www.testereplus.com/kategori/dia-testereler"
+  },
+  {
+    "id": 87,
+    "slug": "duz-cita-profil-bicaklari",
+    "name": "Duz Cita Profil Bıçaklari",
+    "url": "https://www.testereplus.com/kategori/duz-cita-profil-bicaklari"
+  },
+  {
+    "id": 88,
+    "slug": "egri-cita-freze-bicaklari",
+    "name": "Egri Cita Freze Bıçaklari",
+    "url": "https://www.testereplus.com/kategori/egri-cita-freze-bicaklari"
+  },
+  {
+    "id": 89,
+    "slug": "el-sunta-kesme-testereleri",
+    "name": "El Sunta Kesme Testereleri",
+    "url": "https://www.testereplus.com/kategori/el-sunta-kesme-testereleri"
+  },
+  {
+    "id": 90,
+    "slug": "elmas-uclu-alucopan-kompozit-kesim-daire-testere-bicaklari",
+    "name": "Elmas Uclu Alucopan Kompozit Kesim Daire Testere Bıçaklari",
+    "url": "https://www.testereplus.com/kategori/elmas-uclu-alucopan-kompozit-kesim-daire-testere-bicaklari"
+  },
+  {
+    "id": 91,
+    "slug": "elmas-uclu-aluminyum-ve-pvc-daire-testereler",
+    "name": "Elmas Uclu Aluminyum Ve Pvc Daire Testereler",
+    "url": "https://www.testereplus.com/kategori/elmas-uclu-aluminyum-ve-pvc-daire-testereler"
+  },
+  {
+    "id": 92,
+    "slug": "elmas-uclu-hassas-kesim-daire-testere-bicaklari",
+    "name": "Elmas Uclu Hassas Kesim Daire Testere Bıçaklari",
+    "url": "https://www.testereplus.com/kategori/elmas-uclu-hassas-kesim-daire-testere-bicaklari"
+  },
+  {
+    "id": 93,
+    "slug": "elmas-uclu-kanal-daire-testere-bicaklari",
+    "name": "Elmas Uclu Kanal Daire Testere Bıçaklari",
+    "url": "https://www.testereplus.com/kategori/elmas-uclu-kanal-daire-testere-bicaklari"
+  },
+  {
+    "id": 94,
+    "slug": "en-boy-ve-ekleme-bicaklari",
+    "name": "En Boy Ve Ekleme Bıçaklari",
+    "url": "https://www.testereplus.com/kategori/en-boy-ve-ekleme-bicaklari"
+  },
+  {
+    "id": 95,
+    "slug": "er20-pens-din-6499",
+    "name": "Er20 Pens Din 6499",
+    "url": "https://www.testereplus.com/kategori/er20-pens-din-6499"
+  },
+  {
+    "id": 96,
+    "slug": "er25-pens-din-6499",
+    "name": "Er25 Pens Din 6499",
+    "url": "https://www.testereplus.com/kategori/er25-pens-din-6499"
+  },
+  {
+    "id": 97,
+    "slug": "er32-cnc-pensi-din-6499-form-b",
+    "name": "Er32 Cnc Pensi Din 6499 Form B",
+    "url": "https://www.testereplus.com/kategori/er32-cnc-pensi-din-6499-form-b"
+  },
+  {
+    "id": 98,
+    "slug": "er40-pens-din-6499",
+    "name": "Er40 Pens Din 6499",
+    "url": "https://www.testereplus.com/kategori/er40-pens-din-6499"
+  },
+  {
+    "id": 99,
+    "slug": "et-ve-balik-kesiminde-kullanilan-serit-testereler",
+    "name": "Et Ve Balik Kesiminde Kullanilan Serit Testereler",
+    "url": "https://www.testereplus.com/kategori/et-ve-balik-kesiminde-kullanilan-serit-testereler"
+  },
+  {
+    "id": 100,
+    "slug": "faturali-bilezik",
+    "name": "Faturali Bilezik",
+    "url": "https://www.testereplus.com/kategori/faturali-bilezik"
+  },
+  {
+    "id": 101,
+    "slug": "finger-joint-bicaklari",
+    "name": "Finger Joint Bıçaklari",
+    "url": "https://www.testereplus.com/kategori/finger-joint-bicaklari"
+  },
+  {
+    "id": 102,
+    "slug": "freud-testereler-1",
+    "name": "Freud Testereler 1",
+    "url": "https://www.testereplus.com/kategori/freud-testereler-1"
+  },
+  {
+    "id": 103,
+    "slug": "freze-pensi",
+    "name": "Freze Pensi",
+    "url": "https://www.testereplus.com/kategori/freze-pensi"
+  },
+  {
+    "id": 104,
+    "slug": "freze-uclari",
+    "name": "Freze Uclari",
+    "url": "https://www.testereplus.com/kategori/freze-uclari"
+  },
+  {
+    "id": 105,
+    "slug": "friksiyon-ve-sicak-kesim-testereleri",
+    "name": "Friksiyon Ve Sicak Kesim Testereleri",
+    "url": "https://www.testereplus.com/kategori/friksiyon-ve-sicak-kesim-testereleri"
+  },
+  {
+    "id": 106,
+    "slug": "gf-makine-testereleri",
+    "name": "Gf Makine Testereleri",
+    "url": "https://www.testereplus.com/kategori/gf-makine-testereleri"
+  },
+  {
+    "id": 107,
+    "slug": "gomme-cita-dik-freze-bicaklari",
+    "name": "Gomme Cita Dik Freze Bıçaklari",
+    "url": "https://www.testereplus.com/kategori/gomme-cita-dik-freze-bicaklari"
+  },
+  {
+    "id": 108,
+    "slug": "granit-seramik-kesim-bicaklari",
+    "name": "Granit Seramik Kesim Bıçaklari",
+    "url": "https://www.testereplus.com/kategori/granit-seramik-kesim-bicaklari"
+  },
+  {
+    "id": 109,
+    "slug": "havsa-matkaplari",
+    "name": "Havsa Matkaplari",
+    "url": "https://www.testereplus.com/kategori/havsa-matkaplari"
+  },
+  {
+    "id": 110,
+    "slug": "hss-freze-testereler",
+    "name": "Hss Freze Testereler",
+    "url": "https://www.testereplus.com/kategori/hss-freze-testereler"
+  },
+  {
+    "id": 111,
+    "slug": "hss-kuyumcu-testereleri",
+    "name": "Hss Kuyumcu Testereleri",
+    "url": "https://www.testereplus.com/kategori/hss-kuyumcu-testereleri"
+  },
+  {
+    "id": 112,
+    "slug": "hss-matkaplar",
+    "name": "Hss Matkaplar",
+    "url": "https://www.testereplus.com/kategori/hss-matkaplar"
+  },
+  {
+    "id": 113,
+    "slug": "ince-masif-dilme-daire-testereleri",
+    "name": "Ince Masif Dilme Daire Testereleri",
+    "url": "https://www.testereplus.com/kategori/ince-masif-dilme-daire-testereleri"
+  },
+  {
+    "id": 114,
+    "slug": "iskeletci-bicaklari",
+    "name": "Iskeletci Bıçaklari",
+    "url": "https://www.testereplus.com/kategori/iskeletci-bicaklari"
+  },
+  {
+    "id": 115,
+    "slug": "jilet-bicaklar",
+    "name": "Jilet Bıçaklar",
+    "url": "https://www.testereplus.com/kategori/jilet-bicaklar"
+  },
+  {
+    "id": 116,
+    "slug": "jiletler",
+    "name": "Jiletler",
+    "url": "https://www.testereplus.com/kategori/jiletler"
+  },
+  {
+    "id": 117,
+    "slug": "jiletler-ve-planyalar",
+    "name": "Jiletler Ve Planyalar",
+    "url": "https://www.testereplus.com/kategori/jiletler-ve-planyalar"
+  },
+  {
+    "id": 118,
+    "slug": "jiletli-toplar",
+    "name": "Jiletli Toplar",
+    "url": "https://www.testereplus.com/kategori/jiletli-toplar"
+  },
+  {
+    "id": 119,
+    "slug": "kagit-sunger-strafor-gibi-malzemelerin-kesiminde-kullanilan-serit-bicaklar",
+    "name": "Kagit Sunger Strafor Gibi Malzemelerin Kesiminde Kullanilan Serit Bıçaklar",
+    "url": "https://www.testereplus.com/kategori/kagit-sunger-strafor-gibi-malzemelerin-kesiminde-kullanilan-serit-bicaklar"
+  },
+  {
+    "id": 120,
+    "slug": "kanal-acma-bicaklari",
+    "name": "Kanal Acma Bıçaklari",
+    "url": "https://www.testereplus.com/kategori/kanal-acma-bicaklari"
+  },
+  {
+    "id": 121,
+    "slug": "kapi-kasasi-profil-freze-bicak-grubu",
+    "name": "Kapi Kasasi Profil Freze Bıçak Grubu",
+    "url": "https://www.testereplus.com/kategori/kapi-kasasi-profil-freze-bicak-grubu"
+  },
+  {
+    "id": 122,
+    "slug": "kapi-lamba-dik-freze-bicaklari",
+    "name": "Kapi Lamba Dik Freze Bıçaklari",
+    "url": "https://www.testereplus.com/kategori/kapi-lamba-dik-freze-bicaklari"
+  },
+  {
+    "id": 123,
+    "slug": "karbon-celigi-serit-testere",
+    "name": "Karbon Celigi Serit Testere",
+    "url": "https://www.testereplus.com/kategori/karbon-celigi-serit-testere"
+  },
+  {
+    "id": 124,
+    "slug": "kenar-birlestirme-bicaklari",
+    "name": "Kenar Birlestirme Bıçaklari",
+    "url": "https://www.testereplus.com/kategori/kenar-birlestirme-bicaklari"
+  },
+  {
+    "id": 125,
+    "slug": "kenar-temizleme-dik-freze-bicaklari",
+    "name": "Kenar Temizleme Dik Freze Bıçaklari",
+    "url": "https://www.testereplus.com/kategori/kenar-temizleme-dik-freze-bicaklari"
+  },
+  {
+    "id": 126,
+    "slug": "kenar-temizleme-kose-kirma-bicagi",
+    "name": "Kenar Temizleme Kose Kirma Bıçağı",
+    "url": "https://www.testereplus.com/kategori/kenar-temizleme-kose-kirma-bicagi"
+  },
+  {
+    "id": 127,
+    "slug": "kenar-yuvarlama-bicaklari",
+    "name": "Kenar Yuvarlama Bıçaklari",
+    "url": "https://www.testereplus.com/kategori/kenar-yuvarlama-bicaklari"
+  },
+  {
+    "id": 128,
+    "slug": "kenar-yuvarlama-dik-freze-bicaklari",
+    "name": "Kenar Yuvarlama Dik Freze Bıçaklari",
+    "url": "https://www.testereplus.com/kategori/kenar-yuvarlama-dik-freze-bicaklari"
+  },
+  {
+    "id": 129,
+    "slug": "kertme-bicaklari",
+    "name": "Kertme Bıçaklari",
+    "url": "https://www.testereplus.com/kategori/kertme-bicaklari"
+  },
+  {
+    "id": 130,
+    "slug": "kilit-yeri-acma",
+    "name": "Kilit Yeri Acma",
+    "url": "https://www.testereplus.com/kategori/kilit-yeri-acma"
+  },
+  {
+    "id": 131,
+    "slug": "kilit-yeri-acma-bicaklari",
+    "name": "Kilit Yeri Acma Bıçaklari",
+    "url": "https://www.testereplus.com/kategori/kilit-yeri-acma-bicaklari"
+  },
+  {
+    "id": 132,
+    "slug": "kirici-disli-temizleme-bicaklari",
+    "name": "Kirici Disli Temizleme Bıçaklari",
+    "url": "https://www.testereplus.com/kategori/kirici-disli-temizleme-bicaklari"
+  },
+  {
+    "id": 133,
+    "slug": "kohertz-testereler",
+    "name": "Kohertz Testereler",
+    "url": "https://www.testereplus.com/kategori/kohertz-testereler"
+  },
+  {
+    "id": 134,
+    "slug": "kompozit-bicagi",
+    "name": "Kompozit Bıçağı",
+    "url": "https://www.testereplus.com/kategori/kompozit-bicagi"
+  },
+  {
+    "id": 135,
+    "slug": "konig-testereler",
+    "name": "Konig Testereler",
+    "url": "https://www.testereplus.com/kategori/konig-testereler"
+  },
+  {
+    "id": 136,
+    "slug": "kopya-makinasi-bicaklari-fincan-bicak",
+    "name": "Kopya Makinasi Bıçaklari Fincan Bıçak",
+    "url": "https://www.testereplus.com/kategori/kopya-makinasi-bicaklari-fincan-bicak"
+  },
+  {
+    "id": 137,
+    "slug": "kose-radus-ebatlama-cnc-uclari",
+    "name": "Kose Radus Ebatlama Cnc Uclari",
+    "url": "https://www.testereplus.com/kategori/kose-radus-ebatlama-cnc-uclari"
+  },
+  {
+    "id": 138,
+    "slug": "kulp-bicaklari",
+    "name": "Kulp Bıçaklari",
+    "url": "https://www.testereplus.com/kategori/kulp-bicaklari"
+  },
+  {
+    "id": 139,
+    "slug": "kupeste-dik-freze-bicaklari",
+    "name": "Kupeste Dik Freze Bıçaklari",
+    "url": "https://www.testereplus.com/kategori/kupeste-dik-freze-bicaklari"
+  },
+  {
+    "id": 140,
+    "slug": "lamba-bicaklari",
+    "name": "Lamba Bıçaklari",
+    "url": "https://www.testereplus.com/kategori/lamba-bicaklari"
+  },
+  {
+    "id": 141,
+    "slug": "lambri-rabita-ve-supurgelik-grup-bicaklari",
+    "name": "Lambri Rabita Ve Supurgelik Grup Bıçaklari",
+    "url": "https://www.testereplus.com/kategori/lambri-rabita-ve-supurgelik-grup-bicaklari"
+  },
+  {
+    "id": 142,
+    "slug": "laminant-testereleri",
+    "name": "Laminant Testereleri",
+    "url": "https://www.testereplus.com/kategori/laminant-testereleri"
+  },
+  {
+    "id": 143,
+    "slug": "malzeme-sikma-aparati",
+    "name": "Malzeme Sikma Aparati",
+    "url": "https://www.testereplus.com/kategori/malzeme-sikma-aparati"
+  },
+  {
+    "id": 144,
+    "slug": "markalar",
+    "name": "Markalar",
+    "url": "https://www.testereplus.com/kategori/markalar"
+  },
+  {
+    "id": 145,
+    "slug": "masa-kenar-yuvarlama-dik-freze-bicaklari",
+    "name": "Masa Kenar Yuvarlama Dik Freze Bıçaklari",
+    "url": "https://www.testereplus.com/kategori/masa-kenar-yuvarlama-dik-freze-bicaklari"
+  },
+  {
+    "id": 146,
+    "slug": "masura-rulmanli-montaj-aparati",
+    "name": "Masura Rulmanli Montaj Aparati",
+    "url": "https://www.testereplus.com/kategori/masura-rulmanli-montaj-aparati"
+  },
+  {
+    "id": 147,
+    "slug": "matkap-uclari",
+    "name": "Matkap Uclari",
+    "url": "https://www.testereplus.com/kategori/matkap-uclari"
+  },
+  {
+    "id": 148,
+    "slug": "mentese-matkaplari-1",
+    "name": "Mentese Matkaplari 1",
+    "url": "https://www.testereplus.com/kategori/mentese-matkaplari-1"
+  },
+  {
+    "id": 149,
+    "slug": "mentese-yer-acma-bicagi",
+    "name": "Mentese Yer Acma Bıçağı",
+    "url": "https://www.testereplus.com/kategori/mentese-yer-acma-bicagi"
+  },
+  {
+    "id": 150,
+    "slug": "mermer-kesim-daire-testere-bicaklari",
+    "name": "Mermer Kesim Daire Testere Bıçaklari",
+    "url": "https://www.testereplus.com/kategori/mermer-kesim-daire-testere-bicaklari"
+  },
+  {
+    "id": 151,
+    "slug": "metal-dry-cut-elmas-uclu-testereler",
+    "name": "Metal Dry Cut Elmas Uclu Testereler",
+    "url": "https://www.testereplus.com/kategori/metal-dry-cut-elmas-uclu-testereler"
+  },
+  {
+    "id": 152,
+    "slug": "motif-bicaklar",
+    "name": "Motif Bıçaklar",
+    "url": "https://www.testereplus.com/kategori/motif-bicaklar"
+  },
+  {
+    "id": 153,
+    "slug": "negatif-pozitif-hassas-kesim-cnc-uclari",
+    "name": "Negatif Pozitif Hassas Kesim Cnc Uclari",
+    "url": "https://www.testereplus.com/kategori/negatif-pozitif-hassas-kesim-cnc-uclari"
+  },
+  {
+    "id": 154,
+    "slug": "netmak-testereler",
+    "name": "Netmak Testereler",
+    "url": "https://www.testereplus.com/kategori/netmak-testereler"
+  },
+  {
+    "id": 155,
+    "slug": "oluklu-kanal-acma-bicaklari",
+    "name": "Oluklu Kanal Acma Bıçaklari",
+    "url": "https://www.testereplus.com/kategori/oluklu-kanal-acma-bicaklari"
+  },
+  {
+    "id": 156,
+    "slug": "pah-kirma-freze-uclari",
+    "name": "Pah Kirma Freze Uclari",
+    "url": "https://www.testereplus.com/kategori/pah-kirma-freze-uclari"
+  },
+  {
+    "id": 157,
+    "slug": "panc-matkaplari",
+    "name": "Panc Matkaplari",
+    "url": "https://www.testereplus.com/kategori/panc-matkaplari"
+  },
+  {
+    "id": 158,
+    "slug": "panc-matkaplari-1",
+    "name": "Panc Matkaplari 1",
+    "url": "https://www.testereplus.com/kategori/panc-matkaplari-1"
+  },
+  {
+    "id": 159,
+    "slug": "panel-kesim-ebatlama-testereleri",
+    "name": "Panel Kesim Ebatlama Testereleri",
+    "url": "https://www.testereplus.com/kategori/panel-kesim-ebatlama-testereleri"
+  },
+  {
+    "id": 160,
+    "slug": "pencere-dograma-bicaklari",
+    "name": "Pencere Dograma Bıçaklari",
+    "url": "https://www.testereplus.com/kategori/pencere-dograma-bicaklari"
+  },
+  {
+    "id": 161,
+    "slug": "planya-bicaklari",
+    "name": "Planya Bıçaklari",
+    "url": "https://www.testereplus.com/kategori/planya-bicaklari"
+  },
+  {
+    "id": 162,
+    "slug": "profil-ve-dolu-malzeme-kesim-testereleri",
+    "name": "Profil Ve Dolu Malzeme Kesim Testereleri",
+    "url": "https://www.testereplus.com/kategori/profil-ve-dolu-malzeme-kesim-testereleri"
+  },
+  {
+    "id": 163,
+    "slug": "pvc-ve-aluminyum-profiller-icin-celik-uclu-testereler",
+    "name": "Pvc Ve Aluminyum Profiller Icin Celik Uclu Testereler",
+    "url": "https://www.testereplus.com/kategori/pvc-ve-aluminyum-profiller-icin-celik-uclu-testereler"
+  },
+  {
+    "id": 164,
+    "slug": "pvc-ve-cita-kesme-testereleri",
+    "name": "Pvc Ve Cita Kesme Testereleri",
+    "url": "https://www.testereplus.com/kategori/pvc-ve-cita-kesme-testereleri"
+  },
+  {
+    "id": 165,
+    "slug": "r16-pens-din-6499",
+    "name": "R16 Pens Din 6499",
+    "url": "https://www.testereplus.com/kategori/r16-pens-din-6499"
+  },
+  {
+    "id": 166,
+    "slug": "raynel-mil-bilezigi",
+    "name": "Raynel Mil Bilezigi",
+    "url": "https://www.testereplus.com/kategori/raynel-mil-bilezigi"
+  },
+  {
+    "id": 167,
+    "slug": "refrakter-tugla-muhtelif-tas-kesim-bicaklari",
+    "name": "Refrakter Tugla Muhtelif Tas Kesim Bıçaklari",
+    "url": "https://www.testereplus.com/kategori/refrakter-tugla-muhtelif-tas-kesim-bicaklari"
+  },
+  {
+    "id": 168,
+    "slug": "rulmanli-dayamalar",
+    "name": "Rulmanli Dayamalar",
+    "url": "https://www.testereplus.com/kategori/rulmanli-dayamalar"
+  },
+  {
+    "id": 169,
+    "slug": "rustik-cerceve-birlestirme-freze-bicak-grubu",
+    "name": "Rustik Cerceve Birlestirme Freze Bıçak Grubu",
+    "url": "https://www.testereplus.com/kategori/rustik-cerceve-birlestirme-freze-bicak-grubu"
+  },
+  {
+    "id": 170,
+    "slug": "rustik-cerceve-ve-kapak-ekleme-grup-bicaklari",
+    "name": "Rustik Cerceve Ve Kapak Ekleme Grup Bıçaklari",
+    "url": "https://www.testereplus.com/kategori/rustik-cerceve-ve-kapak-ekleme-grup-bicaklari"
+  },
+  {
+    "id": 171,
+    "slug": "rustik-kapi-profil-freze-bicak-grubu",
+    "name": "Rustik Kapi Profil Freze Bıçak Grubu",
+    "url": "https://www.testereplus.com/kategori/rustik-kapi-profil-freze-bicak-grubu"
+  },
+  {
+    "id": 172,
+    "slug": "sakuli-freze-pensi",
+    "name": "Sakuli Freze Pensi",
+    "url": "https://www.testereplus.com/kategori/sakuli-freze-pensi"
+  },
+  {
+    "id": 173,
+    "slug": "serit-testereler",
+    "name": "Serit Testereler",
+    "url": "https://www.testereplus.com/kategori/serit-testereler"
+  },
+  {
+    "id": 174,
+    "slug": "sira-kalemlik-dik-freze-bicaklari",
+    "name": "Sira Kalemlik Dik Freze Bıçaklari",
+    "url": "https://www.testereplus.com/kategori/sira-kalemlik-dik-freze-bicaklari"
+  },
+  {
+    "id": 175,
+    "slug": "size-ozel-urunler",
+    "name": "Size Ozel Urunler",
+    "url": "https://www.testereplus.com/kategori/size-ozel-urunler"
+  },
+  {
+    "id": 176,
+    "slug": "softforming-bicaklari",
+    "name": "Softforming Bıçaklari",
+    "url": "https://www.testereplus.com/kategori/softforming-bicaklari"
+  },
+  {
+    "id": 177,
+    "slug": "spiral-hassas-kesim-bicaklari",
+    "name": "Spiral Hassas Kesim Bıçaklari",
+    "url": "https://www.testereplus.com/kategori/spiral-hassas-kesim-bicaklari"
+  },
+  {
+    "id": 178,
+    "slug": "spiral-kaba-talas-kesim-bicagi",
+    "name": "Spiral Kaba Talas Kesim Bıçağı",
+    "url": "https://www.testereplus.com/kategori/spiral-kaba-talas-kesim-bicagi"
+  },
+  {
+    "id": 179,
+    "slug": "spiral-radius-kure-bicagi",
+    "name": "Spiral Radius Kure Bıçağı",
+    "url": "https://www.testereplus.com/kategori/spiral-radius-kure-bicagi"
+  },
+  {
+    "id": 180,
+    "slug": "sunta-ve-mdf-testereleri-iptal-kaydet",
+    "name": "Sunta Ve Mdf Testereleri Iptal Kaydet",
+    "url": "https://www.testereplus.com/kategori/sunta-ve-mdf-testereleri-iptal-kaydet"
+  },
+  {
+    "id": 181,
+    "slug": "tabla-dik-freze-bicaklari",
+    "name": "Tabla Dik Freze Bıçaklari",
+    "url": "https://www.testereplus.com/kategori/tabla-dik-freze-bicaklari"
+  },
+  {
+    "id": 182,
+    "slug": "tabla-freze-bicagi",
+    "name": "Tabla Freze Bıçağı",
+    "url": "https://www.testereplus.com/kategori/tabla-freze-bicagi"
+  },
+  {
+    "id": 183,
+    "slug": "tac-bicaklari",
+    "name": "Tac Bıçaklari",
+    "url": "https://www.testereplus.com/kategori/tac-bicaklari"
+  },
+  {
+    "id": 184,
+    "slug": "takma-jiletli-kesme-top-bicaklar",
+    "name": "Takma Jiletli Kesme Top Bıçaklar",
+    "url": "https://www.testereplus.com/kategori/takma-jiletli-kesme-top-bicaklar"
+  },
+  {
+    "id": 185,
+    "slug": "talas-unite-testereleri",
+    "name": "Talas Unite Testereleri",
+    "url": "https://www.testereplus.com/kategori/talas-unite-testereleri"
+  },
+  {
+    "id": 186,
+    "slug": "tam-delik",
+    "name": "Tam Delik",
+    "url": "https://www.testereplus.com/kategori/tam-delik"
+  },
+  {
+    "id": 187,
+    "slug": "titan-kapli-inox-paslanmaz-celikler-icin",
+    "name": "Titan Kapli Inox Paslanmaz Celikler Icin",
+    "url": "https://www.testereplus.com/kategori/titan-kapli-inox-paslanmaz-celikler-icin"
+  },
+  {
+    "id": 188,
+    "slug": "tork-anahtar",
+    "name": "Tork Anahtar",
+    "url": "https://www.testereplus.com/kategori/tork-anahtar"
+  },
+  {
+    "id": 189,
+    "slug": "vitrin-urunleri",
+    "name": "Vitrin Urunleri",
+    "url": "https://www.testereplus.com/kategori/vitrin-urunleri"
+  },
+  {
+    "id": 190,
+    "slug": "yarim-daire-dik-freze-bicaklari",
+    "name": "Yarim Daire Dik Freze Bıçaklari",
+    "url": "https://www.testereplus.com/kategori/yarim-daire-dik-freze-bicaklari"
+  },
+  {
+    "id": 191,
+    "slug": "yazi-ve-motif-cnc-uclari-pantograf",
+    "name": "Yazi Ve Motif Cnc Uclari Pantograf",
+    "url": "https://www.testereplus.com/kategori/yazi-ve-motif-cnc-uclari-pantograf"
+  }
+]
