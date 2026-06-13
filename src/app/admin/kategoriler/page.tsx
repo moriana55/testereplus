@@ -1,8 +1,9 @@
 "use client";
 
 import { useState } from "react";
-import { FolderTree, ChevronRight, Package, Edit2, Plus, Trash2, X, Check } from "lucide-react";
-import { categories as dataCategories, getRootCategories, getChildCategories } from "@/lib/data";
+import { FolderTree, ChevronDown, Package, Edit2, Plus, Trash2, X, Check } from "lucide-react";
+import { categories as dataCategories } from "@/lib/data";
+import { useLocalState } from "@/lib/use-local-state";
 
 interface LocalCategory {
   slug: string;
@@ -12,9 +13,11 @@ interface LocalCategory {
 }
 
 export default function CategoriesPage() {
-  const [cats, setCats] = useState<LocalCategory[]>(
+  const [cats, setCats] = useLocalState<LocalCategory[]>(
+    "tp_admin_categories",
     dataCategories.map((c) => ({ slug: c.slug, name: c.name, parentSlug: c.parentSlug || null, productCount: c.productCount }))
   );
+  const [expanded, setExpanded] = useState<Set<string>>(new Set());
   const [showForm, setShowForm] = useState(false);
   const [editSlug, setEditSlug] = useState<string | null>(null);
   const [formName, setFormName] = useState("");
@@ -23,6 +26,22 @@ export default function CategoriesPage() {
 
   const roots = cats.filter((c) => !c.parentSlug);
   const getChildren = (parentSlug: string) => cats.filter((c) => c.parentSlug === parentSlug);
+
+  function toggle(slug: string) {
+    setExpanded((prev) => {
+      const next = new Set(prev);
+      next.has(slug) ? next.delete(slug) : next.add(slug);
+      return next;
+    });
+  }
+
+  function expandAll() {
+    setExpanded(new Set(roots.filter((r) => getChildren(r.slug).length > 0).map((r) => r.slug)));
+  }
+
+  function collapseAll() {
+    setExpanded(new Set());
+  }
 
   function resetForm() { setFormName(""); setFormSlug(""); setFormParent("none"); setEditSlug(null); }
 
@@ -61,9 +80,13 @@ export default function CategoriesPage() {
           <h1 className="text-2xl font-bold text-gray-900">Kategoriler</h1>
           <p className="text-sm text-gray-500 mt-0.5">{cats.length} kategori</p>
         </div>
-        <button onClick={() => { resetForm(); setShowForm(true); }} className="flex items-center gap-2 px-4 py-2 text-sm bg-orange-500 text-white rounded-lg hover:bg-orange-600 font-medium">
-          <Plus size={16} /> Yeni Kategori
-        </button>
+        <div className="flex items-center gap-2">
+          <button onClick={expandAll} className="px-3 py-2 text-xs text-gray-500 hover:bg-gray-100 rounded-lg font-medium">Tümünü Aç</button>
+          <button onClick={collapseAll} className="px-3 py-2 text-xs text-gray-500 hover:bg-gray-100 rounded-lg font-medium">Tümünü Kapat</button>
+          <button onClick={() => { resetForm(); setShowForm(true); }} className="flex items-center gap-2 px-4 py-2 text-sm bg-orange-500 text-white rounded-lg hover:bg-orange-600 font-medium">
+            <Plus size={16} /> Yeni Kategori
+          </button>
+        </div>
       </div>
 
       <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
@@ -85,42 +108,59 @@ export default function CategoriesPage() {
         </div>
       </div>
 
-      <div className="space-y-4">
+      <div className="space-y-3">
         {roots.map((root) => {
           const children = getChildren(root.slug);
+          const isOpen = expanded.has(root.slug);
+          const hasChildren = children.length > 0;
+          const totalProducts = root.productCount + children.reduce((s, c) => s + c.productCount, 0);
+
           return (
             <div key={root.slug} className="bg-white border border-gray-200 rounded-xl overflow-hidden">
-              <div className="flex items-center gap-3 px-5 py-4 bg-gray-50 border-b border-gray-200">
+              {/* Root Category Header */}
+              <div
+                className={`flex items-center gap-3 px-5 py-4 transition-colors ${hasChildren ? "cursor-pointer hover:bg-gray-50" : ""} ${isOpen ? "bg-gray-50 border-b border-gray-200" : ""}`}
+                onClick={() => hasChildren && toggle(root.slug)}
+              >
+                {hasChildren ? (
+                  <ChevronDown size={18} className={`text-gray-400 transition-transform duration-200 ${isOpen ? "" : "-rotate-90"}`} />
+                ) : (
+                  <div className="w-[18px]" />
+                )}
                 <FolderTree size={18} className="text-orange-500" />
-                <div className="flex-1">
+                <div className="flex-1 min-w-0">
                   <h3 className="text-sm font-semibold text-gray-800">{root.name}</h3>
-                  <p className="text-xs text-gray-400">{root.slug} · {children.length} alt kategori · {root.productCount} ürün</p>
+                  <p className="text-xs text-gray-400">{root.slug} · {children.length} alt kategori · {totalProducts} ürün</p>
                 </div>
-                <div className="flex items-center gap-1">
+                <div className="flex items-center gap-1" onClick={(e) => e.stopPropagation()}>
                   <button onClick={() => startEdit(root)} className="p-2 rounded-lg hover:bg-gray-200"><Edit2 size={14} className="text-gray-400" /></button>
                   <button onClick={() => deleteCategory(root.slug)} className="p-2 rounded-lg hover:bg-red-50"><Trash2 size={14} className="text-gray-400 hover:text-red-500" /></button>
                 </div>
               </div>
-              {children.length > 0 && (
+
+              {/* Children - Animated */}
+              <div
+                className={`transition-all duration-200 ease-in-out overflow-hidden ${isOpen ? "max-h-[2000px] opacity-100" : "max-h-0 opacity-0"}`}
+              >
                 <div className="divide-y divide-gray-50">
                   {children.map((child) => (
-                    <div key={child.slug} className="flex items-center gap-3 px-5 pl-12 py-3 hover:bg-gray-50 transition-colors">
-                      <ChevronRight size={14} className="text-gray-300" />
-                      <div className="flex-1">
-                        <p className="text-sm text-gray-700">{child.name}</p>
+                    <div key={child.slug} className="flex items-center gap-3 px-5 pl-14 py-3.5 hover:bg-gray-50 transition-colors group">
+                      <div className="w-1.5 h-1.5 rounded-full bg-gray-300 shrink-0" />
+                      <div className="flex-1 min-w-0">
+                        <p className="text-sm text-gray-700 font-medium">{child.name}</p>
                         <p className="text-xs text-gray-400">{child.slug}</p>
                       </div>
-                      <span className="text-xs bg-gray-100 text-gray-500 px-2 py-0.5 rounded-full flex items-center gap-1">
+                      <span className="text-xs bg-gray-100 text-gray-500 px-2.5 py-1 rounded-full flex items-center gap-1.5">
                         <Package size={10} /> {child.productCount}
                       </span>
-                      <div className="flex items-center gap-1">
+                      <div className="flex items-center gap-1 opacity-0 group-hover:opacity-100 transition-opacity">
                         <button onClick={() => startEdit(child)} className="p-1.5 rounded-lg hover:bg-gray-200"><Edit2 size={12} className="text-gray-400" /></button>
                         <button onClick={() => deleteCategory(child.slug)} className="p-1.5 rounded-lg hover:bg-red-50"><Trash2 size={12} className="text-gray-400 hover:text-red-500" /></button>
                       </div>
                     </div>
                   ))}
                 </div>
-              )}
+              </div>
             </div>
           );
         })}

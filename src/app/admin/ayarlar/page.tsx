@@ -30,13 +30,29 @@ const initialSections: Section[] = [
     ],
   },
   {
-    title: "Ödeme Ayarları",
+    title: "Ödeme Ayarları (iyzico)",
     icon: CreditCard,
     fields: [
-      { label: "iyzico API Key", key: "iyzicoApi", value: "sandbox-xxxxx", type: "password" },
-      { label: "iyzico Secret Key", key: "iyzicoSecret", value: "sandbox-xxxxx", type: "password" },
+      { label: "iyzico API Key", key: "iyzicoApi", value: "", type: "password" },
+      { label: "iyzico Secret Key", key: "iyzicoSecret", value: "", type: "password" },
+      { label: "iyzico Ortam", key: "iyzicoEnv", value: "Sandbox", type: "select", options: ["Sandbox", "Production"] },
+      { label: "3D Secure", key: "iyzico3ds", value: "Aktif", type: "select", options: ["Aktif", "Pasif"] },
+      { label: "Taksit Seçenekleri", key: "iyzicoInstallments", value: "1,2,3,6,9", type: "text" },
       { label: "Kapıda Ödeme", key: "cod", value: "Aktif", type: "select", options: ["Aktif", "Pasif"] },
       { label: "Havale/EFT", key: "eft", value: "Aktif", type: "select", options: ["Aktif", "Pasif"] },
+    ],
+  },
+  {
+    title: "e-Fatura / e-Arşiv (NES)",
+    icon: Globe,
+    fields: [
+      { label: "NES API URL", key: "nesApiUrl", value: "", type: "text" },
+      { label: "NES Kullanıcı Adı", key: "nesUsername", value: "", type: "text" },
+      { label: "NES Şifre", key: "nesPassword", value: "", type: "password" },
+      { label: "Vergi Kimlik No (VKN)", key: "nesVkn", value: "", type: "text" },
+      { label: "Gönderici Alias", key: "nesSenderAlias", value: "", type: "text" },
+      { label: "Otomatik Fatura Oluşturma", key: "nesAutoInvoice", value: "Pasif", type: "select", options: ["Aktif", "Pasif"] },
+      { label: "Varsayılan KDV Oranı", key: "nesDefaultTax", value: "20", type: "select", options: ["0", "1", "10", "20"] },
     ],
   },
   {

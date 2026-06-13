@@ -9,6 +9,7 @@ import { ProductSchema } from "@/components/product-schema";
 import { AddToCartButton } from "@/components/add-to-cart-button";
 import { ProductReviews } from "@/components/product-reviews";
 import { BreadcrumbSchema } from "@/components/breadcrumb-schema";
+import { StockAlert } from "@/components/stock-alert";
 import { notFound } from "next/navigation";
 
 export async function generateStaticParams() {
@@ -188,6 +189,10 @@ export default async function ProductPage({
                 <span className="text-sm font-semibold text-red-500">Stokta Yok</span>
               )}
             </div>
+
+            {!product.inStock && (
+              <StockAlert productId={product.id} productName={product.name} />
+            )}
 
             {/* Add to Cart */}
             <AddToCartButton

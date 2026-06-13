@@ -3,6 +3,7 @@ import Link from "next/link";
 import { categories, getCategoryBySlug, getProductsByCategory, getCategoryBreadcrumb } from "@/lib/data";
 import { ProductListing } from "@/components/product-listing";
 import { notFound } from "next/navigation";
+import { BreadcrumbSchema } from "@/components/breadcrumb-schema";
 
 export async function generateStaticParams() {
   return categories.map((c) => ({ slug: c.slug }));
@@ -36,6 +37,7 @@ export default async function CategoryPage({
 
   return (
     <div className="max-w-7xl mx-auto px-4 py-8">
+      <BreadcrumbSchema items={[{ name: "Ana Sayfa", url: "/" }, { name: "Ürünler", url: "/urunler" }, ...breadcrumb.map((cat) => ({ name: cat.name, url: `/kategori/${cat.slug}` }))]} />
       <nav className="text-sm text-text-muted mb-6">
         <Link href="/" className="hover:text-accent transition-colors">Ana Sayfa</Link>
         <span className="mx-2 text-border">/</span>

@@ -2,6 +2,7 @@ import { Metadata } from "next";
 import Link from "next/link";
 import { Phone, Mail, MapPin, Clock } from "lucide-react";
 import { ContactForm } from "@/components/contact-form";
+import { BreadcrumbSchema } from "@/components/breadcrumb-schema";
 
 export const metadata: Metadata = {
   title: "İletişim",
@@ -11,6 +12,7 @@ export const metadata: Metadata = {
 export default function ContactPage() {
   return (
     <div className="max-w-7xl mx-auto px-4 py-8">
+      <BreadcrumbSchema items={[{ name: "Ana Sayfa", url: "/" }, { name: "İletişim", url: "/iletisim" }]} />
       <nav className="text-sm text-text-muted mb-6">
         <Link href="/" className="hover:text-accent transition-colors">Ana Sayfa</Link>
         <span className="mx-2 text-border">/</span>

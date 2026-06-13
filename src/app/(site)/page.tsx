@@ -4,7 +4,7 @@ import { ProductCard } from "@/components/product-card";
 import { HeroSlider } from "@/components/hero-slider";
 import { categories as allCategories, products } from "@/lib/data";
 
-const categories = allCategories.filter((c) => c.parentSlug || (!c.children?.length));
+const categories = allCategories.filter((c) => !c.parentSlug);
 
 const features = [
   { icon: Truck, title: "Ücretsiz Kargo", desc: "Tüm siparişlerde geçerli", color: "text-blue-600 bg-blue-50" },

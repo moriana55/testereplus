@@ -44,7 +44,52 @@ import {
   Home,
 } from "lucide-react";
 import CommandPalette from "@/components/admin/command-palette";
-import OrderToast from "@/components/admin/order-toast";
+import { AdminAuthProvider, useAdminAuth } from "@/lib/admin-auth";
+
+function AdminLoginScreen() {
+  const { login } = useAdminAuth();
+  const [pw, setPw] = useState("");
+  const [error, setError] = useState(false);
+
+  function handleSubmit(e: React.FormEvent) {
+    e.preventDefault();
+    if (!login(pw)) {
+      setError(true);
+      setTimeout(() => setError(false), 2000);
+    }
+  }
+
+  return (
+    <div className="min-h-screen bg-gray-50 flex items-center justify-center p-4">
+      <div className="w-full max-w-sm">
+        <div className="text-center mb-8">
+          <div className="w-16 h-16 bg-orange-500 rounded-2xl flex items-center justify-center mx-auto mb-4">
+            <span className="text-white font-black text-2xl">T+</span>
+          </div>
+          <h1 className="text-xl font-bold text-gray-900">Testere Plus</h1>
+          <p className="text-sm text-gray-500 mt-1">Yönetim Paneli</p>
+        </div>
+        <form onSubmit={handleSubmit} className="bg-white rounded-2xl shadow-sm border border-gray-200 p-6 space-y-4">
+          <div>
+            <label className="block text-sm font-medium text-gray-700 mb-1">Şifre</label>
+            <input
+              type="password"
+              value={pw}
+              onChange={(e) => setPw(e.target.value)}
+              placeholder="Admin şifresini girin"
+              autoFocus
+              className={`w-full border rounded-lg px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-orange-500/20 focus:border-orange-500 ${error ? "border-red-400 bg-red-50" : "border-gray-200 bg-gray-50"}`}
+            />
+            {error && <p className="text-xs text-red-500 mt-1">Şifre yanlış</p>}
+          </div>
+          <button type="submit" className="w-full bg-orange-500 text-white rounded-lg py-2.5 text-sm font-medium hover:bg-orange-600 transition-colors">
+            Giriş Yap
+          </button>
+        </form>
+      </div>
+    </div>
+  );
+}
 
 const navSections = [
   {
@@ -170,6 +215,15 @@ function getActiveSectionIndex(pathname: string) {
 }
 
 export default function AdminLayout({ children }: { children: React.ReactNode }) {
+  return (
+    <AdminAuthProvider>
+      <AdminLayoutInner>{children}</AdminLayoutInner>
+    </AdminAuthProvider>
+  );
+}
+
+function AdminLayoutInner({ children }: { children: React.ReactNode }) {
+  const { isLoggedIn, logout } = useAdminAuth();
   const pathname = usePathname();
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [dark, setDark] = useState(false);
@@ -226,10 +280,11 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
 
   const unreadCount = notifications.filter((n) => !n.read).length;
 
+  if (!isLoggedIn) return <AdminLoginScreen />;
+
   return (
     <div className={`min-h-screen flex ${dark ? "bg-gray-900" : "bg-gray-50"}`}>
       <CommandPalette />
-      <OrderToast />
 
       {/* Mobile overlay */}
       {sidebarOpen && (
@@ -393,7 +448,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
                     </Link>
                   </div>
                   <div className={`border-t py-1 ${dark ? "border-gray-700" : "border-gray-100"}`}>
-                    <button className="flex items-center gap-2 px-4 py-2 text-sm text-red-500 hover:bg-red-50 dark:hover:bg-red-500/10 w-full transition-colors">
+                    <button onClick={logout} className="flex items-center gap-2 px-4 py-2 text-sm text-red-500 hover:bg-red-50 dark:hover:bg-red-500/10 w-full transition-colors">
                       <X size={15} /> Çıkış Yap
                     </button>
                   </div>

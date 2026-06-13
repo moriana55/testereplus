@@ -1,85 +1,65 @@
 # Site (Frontend) Durum Raporu
 
-Son güncelleme: 2026-05-17
+Son güncelleme: 2026-06-09
 
-## Mevcut Sayfalar
+## Tüm Sayfalar
 
 | Sayfa | Yol | Durum |
 |-------|-----|-------|
 | Ana Sayfa | `/` | Tam — Hero slider, kategoriler, fırsat ürünleri, en çok satanlar, markalar, CTA |
-| Ürünler | `/urunler` | Tam — ProductListing component, arama, filtre |
-| Ürün Detay | `/urunler/[slug]` | Tam — Galeri, buy box, sepete ekle, WhatsApp, karşılaştırma tablosu, tabs, ilgili ürünler, schema.org |
-| Kategori | `/kategori/[slug]` | Tam — Breadcrumb, ürün listesi, kategori banner |
-| Blog | `/blog` | Tam — Kart listesi, kategori badge, tarih |
+| Ürünler | `/urunler` | Tam — ProductListing, arama, filtre, BreadcrumbSchema |
+| Ürün Detay | `/urunler/[slug]` | Tam — Galeri, buy box, sepete ekle, WhatsApp, karşılaştırma, tabs, ilgili ürünler, schema.org, stok bildirimi, yorumlar |
+| Kategori | `/kategori/[slug]` | Tam — Breadcrumb, ürün listesi, kategori banner, BreadcrumbSchema |
+| Blog | `/blog` | Tam — Kart listesi, kategori badge, tarih, BreadcrumbSchema |
 | Blog Yazı | `/blog/[slug]` | Tam — İçerik, ilgili yazılar, CTA |
-| Hakkımızda | `/hakkimizda` | Tam — İstatistikler, misyon, neden biz |
-| İletişim | `/iletisim` | Tam — İletişim formu, bilgiler, WhatsApp |
+| Hakkımızda | `/hakkimizda` | Tam — İstatistikler, misyon, neden biz, BreadcrumbSchema |
+| İletişim | `/iletisim` | Tam — İletişim formu, bilgiler, WhatsApp, BreadcrumbSchema |
+| Sepet | `/sepet` | Tam — Miktar değiştirme, silme, toplam, kupon kodu, WhatsApp sipariş |
+| Ödeme | `/odeme` | Tam — 3 adımlı checkout (Adres → Kargo → Ödeme), sipariş özeti |
+| Sipariş Onay | `/siparis` | Tam — Teşekkür sayfası, sipariş no, sonraki adımlar |
+| Hesabım | `/hesabim` | Tam — Giriş/Kayıt, profil düzenleme, sipariş geçmişi, adres yönetimi |
+| Favoriler | `/favorilerim` | Tam — Favori ürün listesi |
+| Arama | `/ara?q=` | Tam — Dedicated arama sayfası |
+| SSS | `/sss` | Tam — Accordion FAQ |
+| Kargo Takip | `/kargo-takip` | Tam — Sipariş no ile kargo sorgulama |
+| Karşılaştırma | `/karsilastir` | Tam — Ürün karşılaştırma tablosu |
 | 404 | global | Tam — Animasyonlu 404 sayfası |
+| sitemap.xml | `/sitemap.xml` | Tam — Dinamik (ürünler + blog + kategoriler) |
+| robots.txt | `/robots.txt` | Tam — Search engine yönlendirmesi |
 
-## Mevcut Componentler
+## Componentler
 
-- Header, Footer, CartDrawer, CartProvider (context)
+- Header (mega menu, arama, favoriler, hesabım, sepet)
+- Footer
+- CartDrawer, CartProvider (context)
+- AuthProvider (localStorage tabanlı auth)
+- FavoritesProvider, FavoriteButton
 - ProductCard, ProductListing (filtre/sıralama/grid)
 - HeroSlider, ImageGallery, ProductTabs
 - AddToCartButton, ContactForm
-- ProductSchema (JSON-LD)
+- ProductSchema, BreadcrumbSchema (JSON-LD)
+- ProductReviews (yorum yazma, puan dağılımı)
+- StockAlert (stok bildirimi email toplama)
 - RecommendedProducts, ComplementaryProduct
 - CategoryTree, VariantPicker, MaterialCompatibility
-
-## Eksikler & Yapılması Gerekenler
-
-### Kritik (E-ticaret için şart)
-
-| # | Eksik | Açıklama |
-|---|-------|----------|
-| 1 | **Sepet Sayfası** | `/sepet` — CartDrawer var ama ayrı sayfa yok. Miktar değiştirme, silme, toplam vs. |
-| 2 | **Ödeme/Checkout** | `/odeme` — Adres formu, kargo seçimi, ödeme yöntemi (iyzico), sipariş özeti |
-| 3 | **Sipariş Onay** | `/siparis/[id]` — Başarılı ödeme sonrası teşekkür & sipariş detayı |
-| 4 | **Hesabım** | `/hesabim` — Kullanıcı auth, sipariş geçmişi, adres defteri, şifre değiştir |
-| 5 | **Ödeme Entegrasyonu** | iyzico/Stripe API bağlantısı (şu an admin ayarlarda key var ama bağlı değil) |
-
-### Önemli (Conversion & SEO)
-
-| # | Eksik | Açıklama |
-|---|-------|----------|
-| 6 | **Arama Sayfası** | `/ara?q=` — Dedicated search results page (şu an sadece ürünler içi filtre) |
-| 7 | **sitemap.xml** | Dinamik sitemap (ürünler + blog + kategoriler) — şu an yok |
-| 8 | **robots.txt** | Yok — search engine yönlendirmesi eksik |
-| 9 | **Ürün Görselleri** | Tüm ürünler placeholder icon gösteriyor, gerçek görsel yok |
-| 10 | **Favoriler/Wishlist** | Ürün kartında kalp var mı yok mu? Favorileme sistemi |
-| 11 | **Ürün Yorumları** | Detay sayfada rating gösteriliyor (hardcoded 4.0) ama yorum sistemi yok |
-| 12 | **Stok bildirimi** | "Stokta yok" ürünler için email ile bilgilendirme |
-
-### Nice to Have
-
-| # | Eksik | Açıklama |
-|---|-------|----------|
-| 13 | **Karşılaştırma Sayfası** | `/karsilastir` — Birden fazla ürünü yan yana kıyasla |
-| 14 | **Kupon/İndirim Kodu** | Sepet/ödeme'de kupon girişi (admin'de kupon yönetimi var) |
-| 15 | **SSS / FAQ** | `/sss` — Sıkça sorulan sorular |
-| 16 | **Kargo Takibi (site)** | `/kargo-takip` — Müşterinin sipariş no ile kargo sorgulaması |
-| 17 | **Cookie Banner** | KVKK/GDPR uyumlu çerez bildirimi |
-| 18 | **WhatsApp Floating** | Sabit floating WhatsApp butonu (her sayfada) |
-| 19 | **Newsletter Popup** | Email toplama popup/banner |
-| 20 | **Breadcrumb Schema** | Tüm sayfalara BreadcrumbList JSON-LD (şu an sadece Product var) |
+- WhatsAppFloat (floating buton)
+- CookieBanner (KVKK uyumlu)
+- NewsletterPopup (email toplama)
 
 ## Teknik Notlar
 
-- **Veri:** Tüm ürünler `src/lib/data.ts` içinde statik (486 satır). DB yok.
-- **Sepet:** `cart-context.tsx` ile client-side state (localStorage). Çalışıyor.
-- **Auth:** Site tarafında kullanıcı auth sistemi yok. Admin ayrı.
-- **API Routes:** Site tarafında hiçbir API route yok. Tamamı statik/client.
-- **SEO:** Ürün detayda ProductSchema (JSON-LD) var. Diğer sayfalarda Metadata export var. sitemap/robots eksik.
-- **Responsive:** Tailwind breakpoints kullanılıyor, mobil uyumlu.
-- **Görsel:** Ürün görselleri placeholder icon — gerçek fotoğraf eklenmeli.
+- **Veri:** Tüm ürünler `src/lib/data.ts` içinde statik. DB yok.
+- **Sepet:** `cart-context.tsx` ile client-side state (localStorage).
+- **Auth:** `auth-context.tsx` ile localStorage tabanlı. Backend geçişinde API'ye bağlanacak.
+- **Kupon:** Sepet sayfasında çalışan kupon sistemi (hardcoded kuponlar).
+- **SEO:** ProductSchema + BreadcrumbSchema tüm sayfalarda. sitemap + robots aktif.
+- **Responsive:** Tailwind breakpoints, mobil uyumlu.
 
-## Öncelik Sırası
+## Kalan İşler
 
-1. sitemap.xml + robots.txt (5 dk, SEO için şart)
-2. Sepet sayfası (CartDrawer'dan genişlet)
-3. Arama sayfası
-4. WhatsApp floating button
-5. Checkout flow (iyzico entegrasyonu ile birlikte)
-6. Hesabım (auth gerekli)
-7. Ürün yorumları
-8. Gerçek ürün görselleri (content işi)
+| # | İş | Açıklama |
+|---|-----|----------|
+| 1 | Ödeme Entegrasyonu | iyzico/Stripe API bağlantısı (şu an placeholder) |
+| 2 | Ürün Görselleri | Tüm ürünler placeholder icon — gerçek fotoğraf eklenmeli |
+| 3 | Backend API | Statik veri → Neon/Supabase DB geçişi |
+| 4 | Email Bildirimleri | Sipariş onay, kargo, stok bildirim mailleri (MailPilot ile) |
