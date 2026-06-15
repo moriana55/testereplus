@@ -32,6 +32,21 @@ const blogContent: Record<string, string[]> = {
     "Karbür uçlar, tungsten karbür alaşımından üretilir ve HSS'ye göre çok daha sert ve ısıya dayanıklıdır. CNC makinelerde yüksek devirli operasyonlar için vazgeçilmezdir. Ancak kırılganlıkları daha yüksektir ve darbeli kesimler için uygun olmayabilir.",
     "Maliyet-performans analizi yapıldığında, karbür uçlar başlangıç maliyeti yüksek olmasına rağmen, 3-5 kat daha uzun ömürleri sayesinde uzun vadede daha ekonomik olabilir. Özellikle seri üretimde bu fark belirginleşir.",
     "Sonuç olarak, az sayıda ve değişken malzemelerle çalışan atölyeler için HSS iyi bir seçenek olabilirken, seri üretim yapan ve yüksek yüzey kalitesi gerektiren operasyonlar için karbür uçlar tartışmasız daha iyi performans sunar.",
+  ],,
+  "serit-testere-bicagi-rehberi": [
+    "Şerit testere bıçağı seçimi, makinenizin türüne ve kesilecek malzemeye göre doğru parametreler belirlenerek yapılmalıdır. TPI (diş/inç) değeri, bıçak genişliği ve diş geometrisi bu parametrelerin başında gelir.",
+    "TPI değeri, kesim hızı ile kesim kalitesi arasındaki en kritik dengedir. Düşük TPI (2–6) kalın ahşap ve hızlı kesimler için idealdir; talaş boşluğu geniş olduğundan malzeme sıkışmaz. Orta TPI (6–14) genel ahşap kesimi için uygundur. Yüksek TPI (14–32) ince metal boru, profil ve ince ahşap için tercih edilir; temiz ve titreşimsiz yüzey sağlar.",
+    "Bıçak genişliği ise kesim dönüşüm çapı ve kesim düzlüğünü belirler. Dar bıçaklar (3–6 mm) dar eğri kesimler için, geniş bıçaklar (13–25 mm) düz ve güçlü kesimler için kullanılır. Makine kılavuzunuzdaki maksimum bıçak genişliğini aşmamaya özen gösterin.",
+    "Diş geometrisi de kesim kalitesini doğrudan etkiler. Standart diş (Regular) ahşap ve yumuşak malzemeler için; kanca diş (Hook / Positive Rake) hızlı ahşap ve et kesimi için; değişken diş (Variable Pitch) metal kesimde titreşim ve gürültüyü azaltmak için seçilir.",
+    "Metalik malzemelerde bisetal şerit testere bıçakları (HSS diş + yay çeliği gövde) daha uzun ömür sunar. Alüminyum ve bakır gibi yapışkan metaller için özel kaplamalı veya yüksek hız çeliği bıçaklar tercih edilmelidir. Bıçak gerilimi ve kılavuz ayarları da kesim kalitesini doğrudan etkiler; makine kılavuzuna göre düzenli kontrol yapın.",
+  ],
+  "karbur-dis-geometrileri": [
+    "Daire testere bıçaklarındaki karbür diş geometrisi, hangi malzemeyi nasıl kesiyor olduğunuza göre belirlenmelidir. Dört temel geometri bulunur: ATB, FTG, TCG ve Hi-ATB.",
+    "ATB (Alternate Top Bevel — Alternatif Üst Eğim): Dişler sağ ve sol olmak üzere dönüşümlü açıyla bilenir. Bu geometri ahşap, kontrplak ve MDF'de hem yüzey hem de kenar kalitesini dengeleyerek en temiz sonuçları verir. Çoğu genel amaçlı bıçakta kullanılır.",
+    "FTG (Flat Top Grind — Düz Üst Talaş): Dişler tamamen düz kesilir. Masif ahşapta pürüzsüz boyuna kesim ve kereste kesimi için idealdir. Altta life paralel kesimlerde mükemmel sonuç verir ancak çapraz kesimde ATB'ye göre daha kaba yüzey bırakır.",
+    "TCG (Triple Chip Grind — Üçlü Talaş): Bir düz diş, bir köşe-kırpılmış diş şeklinde tekrarlanan kombinasyon. Alüminyum, PVC, fiber çimento ve sert plastik kesiminde idealdir; yapışmaz ve talaş sıkışmasını önler. Seramik ve asfalt kesimi için de kullanılır.",
+    "Hi-ATB (Yüksek Açılı ATB): ATB'nin daha yüksek (typ. 40°) bevel açısıyla versiyonudur. Melamin, laminant ve çift yüzlü kaplama levhalarda parçalanmayı (tearout) en aza indirir; en temiz yüzeyi bu geometri verir. Ancak daha hızlı aşınır ve sadece temiz malzemelerde kullanılmalıdır.",
+    "Özetle: Genel ahşap → ATB; boyuna ahşap → FTG; alüminyum, PVC → TCG; melamin, laminant → Hi-ATB seçin. Kombine ATB+R (Raker diş eklenmiş ATB) ise hem boyuna hem de çapraz kesimde dengeli performans isteyen atölyeler için üretilmiş karma bir çözümdür.",
   ],
 };
 

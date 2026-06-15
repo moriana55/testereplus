@@ -37,6 +37,20 @@ export const posts = [
     date: "2024-09-05",
     category: "Karşılaştırma",
   },
+  {
+    slug: "serit-testere-bicagi-rehberi",
+    title: "Şerit Testere Bıçağı Seçim Rehberi: TPI, Genişlik ve Malzeme",
+    excerpt: "Ahşap, et ve metal kesiminde şerit testere bıçağı seçerken dikkat etmeniz gereken TPI değeri, bıçak genişliği ve diş geometrisi hakkında kapsamlı rehber.",
+    date: "2025-03-18",
+    category: "Rehber",
+  },
+  {
+    slug: "karbur-dis-geometrileri",
+    title: "Karbür Diş Geometrileri: ATB, TCG, FTG ve Hi-ATB Farkları",
+    excerpt: "Daire testere bıçaklarındaki karbür diş geometrilerini tanıyın: hangi geometri hangi malzeme ve kesim tipi için idealdir?",
+    date: "2025-02-05",
+    category: "Teknik",
+  },
 ];
 
 export default function BlogPage() {
