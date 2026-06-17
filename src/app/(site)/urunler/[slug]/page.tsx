@@ -1,7 +1,7 @@
 import { Metadata } from "next";
 import Link from "next/link";
-import { Truck, Shield, ArrowLeft, Check, Star, CircleCheck, Zap, Ruler, Disc3, Factory } from "lucide-react";
-import { products, getProductBySlug, getRelatedProducts, getAccessories, getCategoryBreadcrumb, formatPrice } from "@/lib/data";
+import { Truck, Shield, ArrowLeft, Check, Star, CircleCheck, Zap, Ruler, Disc3, Factory, FileText } from "lucide-react";
+import { products, getProductBySlug, getRelatedProducts, getAccessories, getCategoryBreadcrumb, formatPrice, getStockInfo } from "@/lib/data";
 import { ImageGallery } from "@/components/image-gallery";
 import { ProductTabs } from "@/components/product-tabs";
 import { RecommendedProducts } from "@/components/recommended-products";
@@ -24,11 +24,26 @@ export async function generateMetadata({
   const { slug } = await params;
   const product = getProductBySlug(slug);
   if (!product) return { title: "Ürün Bulunamadı" };
+
+  // Long-tail SEO başlığı: ürün adı + marka + kategori + fiyat sinyali.
+  const catName = getCategoryBreadcrumb(product.categorySlug).slice(-1)[0]?.name;
+  const titleParts = [product.name];
+  if (catName && !product.name.toLowerCase().includes(catName.toLowerCase().split(" ")[0])) {
+    titleParts.push(catName);
+  }
+  const seoTitle = `${titleParts.join(" | ")} - ${product.brand} | Testere Plus`;
+
+  const metaDescription =
+    `${product.name} (${product.brand}) — ${formatPrice(product.price)}. ` +
+    `${product.description} Orijinal ürün, hızlı kargo. Toplu/B2B alımlarda teklif isteyin.`;
+
   return {
-    title: product.name,
-    description: product.description,
+    title: seoTitle,
+    description: metaDescription.slice(0, 300),
+    keywords: [product.name, product.brand, catName, "testere bıçağı", "kesici takım"].filter(Boolean) as string[],
+    alternates: { canonical: `/urunler/${product.slug}` },
     openGraph: {
-      title: product.name,
+      title: seoTitle,
       description: product.description,
       images: product.images.length > 0 ? [{ url: product.images[0] }] : [],
       type: "website",
@@ -53,6 +68,7 @@ export default async function ProductPage({
     ? Math.round(((product.oldPrice - product.price) / product.oldPrice) * 100)
     : null;
   const savings = product.oldPrice ? product.oldPrice - product.price : null;
+  const stock = getStockInfo(product);
 
   const featureIcons = [
     { icon: Disc3, label: "Çap", value: product.specs["Çap"] },
@@ -179,14 +195,24 @@ export default async function ProductPage({
             </div>
 
             {/* Stock */}
-            <div className="flex items-center gap-2 mb-4">
-              {product.inStock ? (
-                <>
+            <div className="mb-4">
+              {stock.status === "out" ? (
+                <span className="text-sm font-semibold text-red-500">Stokta Yok</span>
+              ) : stock.status === "low" ? (
+                <div>
+                  <div className="flex items-center gap-2">
+                    <Zap size={16} className="text-amber-500" />
+                    <span className="text-sm font-semibold text-amber-600">
+                      Son {stock.count} adet — tükenmek üzere
+                    </span>
+                  </div>
+                  <p className="text-[11px] text-text-muted mt-0.5">Hızlı karar verin, stok sınırlı.</p>
+                </div>
+              ) : (
+                <div className="flex items-center gap-2">
                   <Check size={16} className="text-green-500" />
                   <span className="text-sm font-semibold text-green-600">Stokta Var</span>
-                </>
-              ) : (
-                <span className="text-sm font-semibold text-red-500">Stokta Yok</span>
+                </div>
               )}
             </div>
 
@@ -203,6 +229,15 @@ export default async function ProductPage({
               slug={product.slug}
               inStock={product.inStock}
             />
+
+            {/* Teklif İste (B2B / toplu sipariş) */}
+            <Link
+              href={`/teklif?urun=${encodeURIComponent(product.name)}${product.sku ? `&sku=${encodeURIComponent(product.sku)}` : ""}`}
+              className="flex items-center justify-center gap-2 w-full border border-accent text-accent hover:bg-accent/5 py-3 rounded-xl font-semibold transition-colors text-sm mt-3"
+            >
+              <FileText size={16} />
+              Toplu Alım için Teklif İste
+            </Link>
 
             {/* WhatsApp */}
             <a
@@ -336,9 +371,11 @@ export default async function ProductPage({
         oldPrice={product.oldPrice}
         sku={product.sku}
         images={product.images}
-        inStock={product.inStock}
+        inStock={stock.status !== "out"}
         category={product.category}
         url={`/urunler/${product.slug}`}
+        ratingValue={4.0}
+        reviewCount={12}
       />
     </div>
   );

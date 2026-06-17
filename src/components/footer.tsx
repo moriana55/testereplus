@@ -86,6 +86,11 @@ export function Footer() {
                 </Link>
               </li>
               <li>
+                <Link href="/teklif" className="text-sm hover:text-accent-light transition-colors">
+                  Toplu Sipariş / Teklif İste
+                </Link>
+              </li>
+              <li>
                 <Link href="/blog" className="text-sm hover:text-accent-light transition-colors">
                   Blog
                 </Link>

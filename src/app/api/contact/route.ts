@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import { sendEmail } from "@/lib/email";
+import { checkRateLimit } from "@/lib/rate-limit";
 
 /**
  * İletişim formu API'si
@@ -21,6 +22,15 @@ interface ContactBody {
 }
 
 export async function POST(request: Request) {
+  // Hız sınırı: IP başına 60 sn'de en fazla 5 mesaj (spam/abuse'a karşı, fail-closed).
+  const rl = checkRateLimit(request, "contact", 5, 60_000);
+  if (!rl.allowed) {
+    return NextResponse.json(
+      { ok: false, error: "Çok fazla mesaj gönderdiniz. Lütfen biraz sonra tekrar deneyin." },
+      { status: 429, headers: { "Retry-After": String(rl.retryAfterSec) } },
+    );
+  }
+
   let body: ContactBody;
   try {
     body = await request.json();

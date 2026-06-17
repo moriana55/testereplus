@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import { initCheckoutForm, type IyzicoBasketItem } from "@/lib/iyzico";
 import { sendEmail, orderConfirmationHtml } from "@/lib/email";
+import { checkRateLimit } from "@/lib/rate-limit";
 
 /**
  * Checkout API
@@ -75,10 +76,20 @@ function validate(body: Partial<CheckoutBody>): string[] {
 }
 
 function genOrderId(): string {
-  return "TP-" + Date.now().toString(36).toUpperCase();
+  // Tahmin edilemez sipariş kimliği (crypto.randomUUID — güvenli rastgele).
+  return "TP-" + crypto.randomUUID().split("-")[0].toUpperCase();
 }
 
 export async function POST(request: Request) {
+  // Hız sınırı: IP başına 60 sn'de en fazla 10 checkout denemesi (fail-closed).
+  const rl = checkRateLimit(request, "checkout", 10, 60_000);
+  if (!rl.allowed) {
+    return NextResponse.json(
+      { ok: false, errors: ["Çok fazla istek. Lütfen biraz sonra tekrar deneyin."] },
+      { status: 429, headers: { "Retry-After": String(rl.retryAfterSec) } },
+    );
+  }
+
   let body: Partial<CheckoutBody>;
   try {
     body = await request.json();

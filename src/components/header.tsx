@@ -187,6 +187,9 @@ export function Header() {
           <Link href="/urunler" className="px-5 py-4 hover:text-[#f39c12] transition-colors">
             Tüm Ürünler
           </Link>
+          <Link href="/teklif" className="px-5 py-4 font-semibold text-[#f39c12] hover:text-[#e08e0b] transition-colors">
+            Teklif İste
+          </Link>
         </div>
       </nav>
 
@@ -212,6 +215,9 @@ export function Header() {
           ))}
           <Link href="/urunler" className="block py-2.5 px-3 text-[#f39c12] font-bold" onClick={() => setMenuOpen(false)}>
             Tüm Ürünler
+          </Link>
+          <Link href="/teklif" className="block py-2.5 px-3 text-[#f39c12] font-bold" onClick={() => setMenuOpen(false)}>
+            Teklif İste
           </Link>
         </div>
       )}

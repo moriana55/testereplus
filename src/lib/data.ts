@@ -4279,6 +4279,60 @@ export const brands = [
 ];
 
 
+// ─────────────────────────────────────────────────────────────
+// Kategori SEO içerik blokları (long-tail anahtar kelimeler için)
+//
+// Kategori sayfalarında ürün listesinin altına eklenen, arama amacına
+// yönelik kısa açıklayıcı metinler. Saf içerik — anahtar gerektirmez.
+// ─────────────────────────────────────────────────────────────
+
+export interface CategorySeoBlurb {
+  heading: string;
+  paragraphs: string[];
+}
+
+const categorySeo: Record<string, CategorySeoBlurb> = {
+  "ahsap-testereler": {
+    heading: "Ahşap Daire Testere Bıçağı Seçerken Diş Sayısı Neden Önemli?",
+    paragraphs: [
+      "Ahşap kesiminde daire testere bıçağı diş sayısı, kesim kalitesini doğrudan belirler. Düşük diş sayılı (24-40 diş) bıçaklar hızlı boyuna kesim (yarma) için idealdir; yüksek diş sayılı (60-80 diş) bıçaklar ise enine kesimde temiz, çapaksız sonuç verir. Masif ahşap, kereste ve sert ağaç türlerinde doğru diş geometrisi (ATB, TCG) seçimi, hem kesim ömrünü hem de yüzey kalitesini artırır.",
+      "Çap seçimi makinenize bağlıdır: 160-190 mm el tipi makineler için, 250-315 mm sabit tezgah ve gönye testereler için uygundur. Karbür (HM) uçlu bıçaklar, çelik bıçaklara göre çok daha uzun ömürlüdür ve profesyonel marangozluk uygulamalarında standarttır.",
+    ],
+  },
+  "aluminyum-pvc-metal-testereleri": {
+    heading: "Alüminyum ve PVC Kesim Testere Bıçağı: Negatif Açı ve Yüksek Diş",
+    paragraphs: [
+      "Alüminyum profil, PVC ve demir dışı metal kesiminde negatif talaş açılı ve yüksek diş sayılı (80-120 diş) daire testere bıçakları tercih edilir. Bu geometri, malzemenin sıçramasını önler, çapaksız ve sessiz kesim sağlar. TCG (trapez-düz) diş formu, alüminyum profil kesiminde en temiz sonucu verir.",
+      "PVC pencere/kapı imalatında ve klima tesisatında kullanılan alüminyum borularda doğru bıçak seçimi, kesim sırasında ısınmayı azaltır ve uç ömrünü uzatır. Toplu alımlar için B2B teklif sistemimizden fiyat isteyebilirsiniz.",
+    ],
+  },
+  "sunta-mdf-laminant-testereleri": {
+    heading: "Sunta, MDF ve Laminant İçin Testere Bıçağı Önerileri",
+    paragraphs: [
+      "Sunta, MDF ve laminant gibi kaplamalı levhalarda çapaksız kesim için yüksek diş sayılı (60-80 diş) trapez dişli daire testere bıçakları kullanılır. Laminant yüzeylerde kıymık oluşumunu önlemek için scoring (çizici) bıçak desteği ve doğru ilerleme hızı kritiktir.",
+      "Mobilya üretiminde ebatlama makineleri ve yatar daire testere tezgahları için uygun çap ve mil deliği (genellikle 30 mm) seçimi performansı belirler. Karbür uçlu modeller, yüksek üretim hacminde maliyet avantajı sağlar.",
+    ],
+  },
+  "betopan-asfalt-granit-seramik-mermer": {
+    heading: "Elmas Uçlu Testere ile Granit, Seramik ve Mermer Kesimi",
+    paragraphs: [
+      "Doğal taş, granit, mermer, seramik ve betopan kesiminde elmas uçlu (DIA) testere bıçakları kullanılır. Sürekli jant (continuous rim) bıçaklar çapaksız seramik ve fayans kesimi için; segmentli (segmented) bıçaklar ise hızlı beton ve granit kesimi için uygundur.",
+      "Sulu kesim, hem toz emisyonunu azaltır hem de elmas uç ömrünü uzatır. Çap ve segment yüksekliği, kesilecek malzemenin sertliğine göre seçilmelidir.",
+    ],
+  },
+  "freze-bicaklari": {
+    heading: "CNC Freze Bıçağı ve Profil Açma Takımları",
+    paragraphs: [
+      "CNC freze bıçağı seçimi, işlenecek malzemeye ve istenen profile göre yapılır. Ahşap, MDF ve kompozit malzemelerde karbür uçlu freze bıçakları uzun ömür ve temiz yüzey sağlar. Parmak freze, profil freze ve oluk açma bıçakları farklı uygulamalar için tasarlanmıştır.",
+      "Mil çapı, kesici çapı ve diş sayısı, CNC tezgahınızın devir ve ilerleme parametreleriyle uyumlu olmalıdır. Profesyonel atölyeler için toplu alım ve teklif seçeneklerimizden yararlanabilirsiniz.",
+    ],
+  },
+};
+
+export function getCategorySeo(slug: string): CategorySeoBlurb | undefined {
+  return categorySeo[slug];
+}
+
 export function getProductBySlug(slug: string): Product | undefined {
   return products.find((p) => p.slug === slug);
 }
@@ -4331,4 +4385,41 @@ export function formatPrice(price: number): string {
     currency: "TRY",
     minimumFractionDigits: 0,
   }).format(price);
+}
+
+// ─────────────────────────────────────────────────────────────
+// Stok seviyesi (envanter durumu göstergesi)
+//
+// Katalog verisi yalnızca `inStock: boolean` taşır; gerçek adet bilgisi yok.
+// Bu yüzden ürün id'sinden DETERMİNİSTİK bir tahmini adet türetiriz — değer
+// üründen ürüne tutarlıdır, her render'da değişmez. DÜRÜST olmak adına bu
+// değerin mock olduğunu UI üzerinde "tahmini" ifadesiyle belirtiriz.
+// Gerçek stok entegrasyonu (IdeaSoft/ERP) bağlandığında bu fonksiyon
+// gerçek adetle değiştirilebilir.
+// ─────────────────────────────────────────────────────────────
+
+export type StockStatus = "out" | "low" | "in";
+
+export interface StockInfo {
+  status: StockStatus;
+  /** Tahmini kalan adet (yalnızca "low" durumunda anlamlıdır). */
+  count: number;
+  /** Bu değerin gerçek envanterden değil, tahmini olduğunu belirtir. */
+  estimated: boolean;
+}
+
+const LOW_STOCK_THRESHOLD = 8;
+
+export function getStockInfo(product: Pick<Product, "id" | "inStock">): StockInfo {
+  if (!product.inStock) return { status: "out", count: 0, estimated: true };
+
+  // id'den deterministik 0–19 arası bir sayı üret (basit hash).
+  let h = 0;
+  for (let i = 0; i < product.id.length; i++) h = (h * 31 + product.id.charCodeAt(i)) & 0xffff;
+  const pseudo = h % 20; // 0..19
+
+  if (pseudo < LOW_STOCK_THRESHOLD) {
+    return { status: "low", count: pseudo + 2, estimated: true }; // 2..9 adet
+  }
+  return { status: "in", count: 0, estimated: true };
 }

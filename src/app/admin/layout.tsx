@@ -47,15 +47,20 @@ import CommandPalette from "@/components/admin/command-palette";
 import { AdminAuthProvider, useAdminAuth } from "@/lib/admin-auth";
 
 function AdminLoginScreen() {
-  const { login } = useAdminAuth();
+  const { login, configured } = useAdminAuth();
   const [pw, setPw] = useState("");
   const [error, setError] = useState(false);
+  const [busy, setBusy] = useState(false);
 
-  function handleSubmit(e: React.FormEvent) {
+  async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
-    if (!login(pw)) {
+    if (busy) return;
+    setBusy(true);
+    const ok = await login(pw);
+    setBusy(false);
+    if (!ok) {
       setError(true);
-      setTimeout(() => setError(false), 2000);
+      setTimeout(() => setError(false), 2500);
     }
   }
 
@@ -81,9 +86,14 @@ function AdminLoginScreen() {
               className={`w-full border rounded-lg px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-orange-500/20 focus:border-orange-500 ${error ? "border-red-400 bg-red-50" : "border-gray-200 bg-gray-50"}`}
             />
             {error && <p className="text-xs text-red-500 mt-1">Şifre yanlış</p>}
+            {!configured && (
+              <p className="text-xs text-amber-600 mt-1">
+                Admin girişi sunucuda yapılandırılmamış. Lütfen ADMIN_PASSWORD ve ADMIN_SECRET ortam değişkenlerini ayarlayın.
+              </p>
+            )}
           </div>
-          <button type="submit" className="w-full bg-orange-500 text-white rounded-lg py-2.5 text-sm font-medium hover:bg-orange-600 transition-colors">
-            Giriş Yap
+          <button type="submit" disabled={busy} className="w-full bg-orange-500 text-white rounded-lg py-2.5 text-sm font-medium hover:bg-orange-600 transition-colors disabled:opacity-60">
+            {busy ? "Kontrol ediliyor..." : "Giriş Yap"}
           </button>
         </form>
       </div>

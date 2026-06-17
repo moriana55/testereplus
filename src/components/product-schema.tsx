@@ -5,38 +5,81 @@ interface Props {
   price: number;
   oldPrice?: number;
   sku?: string;
+  mpn?: string;
   images: string[];
   inStock: boolean;
   category: string;
   url: string;
+  /** Görüntülenen yıldız/yorum verisiyle tutarlı toplu puan (opsiyonel). */
+  ratingValue?: number;
+  reviewCount?: number;
 }
 
-export function ProductSchema({ name, description, brand, price, oldPrice, sku, images, inStock, category, url }: Props) {
+const SITE = "https://testereplus.vercel.app";
+
+export function ProductSchema({
+  name,
+  description,
+  brand,
+  price,
+  oldPrice,
+  sku,
+  mpn,
+  images,
+  inStock,
+  category,
+  url,
+  ratingValue,
+  reviewCount,
+}: Props) {
+  // priceValidUntil her zaman verilir (Google Merchant uyarısını önler).
+  const priceValidUntil = new Date(Date.now() + 30 * 24 * 60 * 60 * 1000).toISOString().split("T")[0];
+
   const schema = {
     "@context": "https://schema.org",
     "@type": "Product",
     name,
     description,
-    image: images.length > 0 ? images.map((img) => `https://testereplus.vercel.app${img}`) : undefined,
-    sku,
+    image: images.length > 0 ? images.map((img) => `${SITE}${img}`) : undefined,
+    sku: sku || undefined,
+    mpn: mpn || sku || undefined,
     brand: {
       "@type": "Brand",
       name: brand,
     },
     category,
+    ...(ratingValue && reviewCount
+      ? {
+          aggregateRating: {
+            "@type": "AggregateRating",
+            ratingValue: ratingValue.toFixed(1),
+            reviewCount: String(reviewCount),
+            bestRating: "5",
+            worstRating: "1",
+          },
+        }
+      : {}),
     offers: {
       "@type": "Offer",
-      url: `https://testereplus.vercel.app${url}`,
+      url: `${SITE}${url}`,
       priceCurrency: "TRY",
       price: price.toFixed(2),
-      ...(oldPrice && { priceValidUntil: new Date(Date.now() + 30 * 24 * 60 * 60 * 1000).toISOString().split("T")[0] }),
-      availability: inStock
-        ? "https://schema.org/InStock"
-        : "https://schema.org/OutOfStock",
+      priceValidUntil,
+      itemCondition: "https://schema.org/NewCondition",
+      availability: inStock ? "https://schema.org/InStock" : "https://schema.org/OutOfStock",
       seller: {
         "@type": "Organization",
         name: "Testere Plus",
       },
+      ...(oldPrice
+        ? {
+            priceSpecification: {
+              "@type": "PriceSpecification",
+              price: price.toFixed(2),
+              priceCurrency: "TRY",
+            },
+          }
+        : {}),
     },
   };
 

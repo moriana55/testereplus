@@ -1,6 +1,6 @@
 import { Metadata } from "next";
 import Link from "next/link";
-import { categories, getCategoryBySlug, getProductsByCategory, getCategoryBreadcrumb } from "@/lib/data";
+import { categories, getCategoryBySlug, getProductsByCategory, getCategoryBreadcrumb, getCategorySeo } from "@/lib/data";
 import { ProductListing } from "@/components/product-listing";
 import { notFound } from "next/navigation";
 import { BreadcrumbSchema } from "@/components/breadcrumb-schema";
@@ -34,6 +34,7 @@ export default async function CategoryPage({
 
   const categoryProducts = getProductsByCategory(slug);
   const breadcrumb = getCategoryBreadcrumb(slug);
+  const seoBlurb = getCategorySeo(slug);
 
   return (
     <div className="max-w-7xl mx-auto px-4 py-8">
@@ -63,6 +64,19 @@ export default async function CategoryPage({
       </div>
 
       <ProductListing products={categoryProducts} categories={categories} activeCategory={slug} />
+
+      {seoBlurb && (
+        <section className="mt-12 border-t border-border pt-8">
+          <h2 className="text-xl font-bold text-text-primary mb-4">{seoBlurb.heading}</h2>
+          <div className="space-y-3 max-w-3xl">
+            {seoBlurb.paragraphs.map((p, i) => (
+              <p key={i} className="text-sm text-text-secondary leading-relaxed">
+                {p}
+              </p>
+            ))}
+          </div>
+        </section>
+      )}
     </div>
   );
 }

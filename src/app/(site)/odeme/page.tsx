@@ -75,11 +75,16 @@ export default function OdemePage() {
         return;
       }
 
-      // iyzico hosted form geldiyse: HTML'i çalıştır (3D yönlendirmesi)
+      // iyzico hosted form geldiyse: HTML'i çalıştır (3D yönlendirmesi).
+      // GÜVENLİK NOTU: checkoutFormContent yalnızca GÜVENİLİR bir kaynaktan gelir
+      // — sunucu tarafındaki /api/checkout, iyzico'nun resmi API'sinden döndürür;
+      // kullanıcı girdisi DEĞİLDİR. innerHTML, iyzico'nun ödeme script'ini
+      // çalıştırmak için gereklidir (ödeme hand-off'unu bozmamak için).
+      // Kapsam dar tutulur: gizli, tek kullanımlık bir container'a yazılır.
       if (data.checkoutFormContent) {
         const container = document.createElement("div");
         container.style.display = "none";
-        container.innerHTML = data.checkoutFormContent;
+        container.innerHTML = data.checkoutFormContent; // trusted: iyzico API çıktısı
         document.body.appendChild(container);
         container.querySelectorAll("script").forEach((old) => {
           const s = document.createElement("script");
