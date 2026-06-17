@@ -25,6 +25,13 @@ export function ProductReviews({ productId }: { productId: string }) {
   const [rating, setRating] = useState(5);
   const [comment, setComment] = useState("");
   const [hoverRating, setHoverRating] = useState(0);
+  const [votedIds, setVotedIds] = useState<Set<string>>(new Set());
+
+  function handleHelpful(id: string) {
+    if (votedIds.has(id)) return;
+    setReviews((prev) => prev.map((r) => (r.id === id ? { ...r, helpful: r.helpful + 1 } : r)));
+    setVotedIds((prev) => new Set(prev).add(id));
+  }
 
   const avg = reviews.length > 0 ? reviews.reduce((s, r) => s + r.rating, 0) / reviews.length : 0;
   const distribution = [5, 4, 3, 2, 1].map((star) => ({
@@ -169,8 +176,16 @@ export function ProductReviews({ productId }: { productId: string }) {
               </div>
             </div>
             <p className="text-sm text-text-secondary mb-3">{review.comment}</p>
-            <button className="flex items-center gap-1.5 text-xs text-text-muted hover:text-accent transition-colors">
-              <ThumbsUp size={12} />
+            <button
+              onClick={() => handleHelpful(review.id)}
+              disabled={votedIds.has(review.id)}
+              className={`flex items-center gap-1.5 text-xs transition-colors ${
+                votedIds.has(review.id)
+                  ? "text-accent cursor-default"
+                  : "text-text-muted hover:text-accent"
+              }`}
+            >
+              <ThumbsUp size={12} className={votedIds.has(review.id) ? "fill-accent" : ""} />
               Faydalı ({review.helpful})
             </button>
           </div>

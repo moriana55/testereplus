@@ -1,15 +1,19 @@
 "use client";
 
 import { useState } from "react";
-import { useRouter } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 import Link from "next/link";
-import { ArrowLeft, ShoppingBag, CreditCard, Truck, MapPin } from "lucide-react";
+import { ArrowLeft, ShoppingBag, CreditCard, Truck, MapPin, AlertCircle, Loader2 } from "lucide-react";
 import { useCart } from "@/lib/cart-context";
 import { formatPrice } from "@/lib/data";
+
+const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+const PHONE_RE = /^[0-9+\s()-]{7,20}$/;
 
 export default function OdemePage() {
   const { items, totalPrice, clearCart } = useCart();
   const router = useRouter();
+  const searchParams = useSearchParams();
   const [step, setStep] = useState<1 | 2 | 3>(1);
 
   const [address, setAddress] = useState({
@@ -25,6 +29,75 @@ export default function OdemePage() {
 
   const [shipping, setShipping] = useState("standard");
   const [payment, setPayment] = useState("card");
+  const [errors, setErrors] = useState<Record<string, string>>({});
+  const [formError, setFormError] = useState<string | null>(
+    searchParams.get("error") ? "Ödeme tamamlanamadı. Lütfen tekrar deneyin." : null,
+  );
+  const [submitting, setSubmitting] = useState(false);
+
+  function validateAddress(): boolean {
+    const e: Record<string, string> = {};
+    if (!address.fullName.trim() || address.fullName.trim().length < 3) e.fullName = "Ad Soyad giriniz.";
+    if (!PHONE_RE.test(address.phone.trim())) e.phone = "Geçerli bir telefon giriniz.";
+    if (!EMAIL_RE.test(address.email.trim())) e.email = "Geçerli bir e-posta giriniz.";
+    if (!address.city.trim()) e.city = "İl zorunludur.";
+    if (!address.district.trim()) e.district = "İlçe zorunludur.";
+    if (!address.address.trim() || address.address.trim().length < 10) e.address = "Açık adres en az 10 karakter olmalı.";
+    setErrors(e);
+    return Object.keys(e).length === 0;
+  }
+
+  function goToShipping() {
+    if (validateAddress()) {
+      setFormError(null);
+      setStep(2);
+    }
+  }
+
+  async function handleSubmit() {
+    setFormError(null);
+    if (!validateAddress()) {
+      setStep(1);
+      return;
+    }
+    setSubmitting(true);
+    try {
+      const res = await fetch("/api/checkout", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ address, shipping, payment, items }),
+      });
+      const data = await res.json();
+
+      if (!res.ok || !data.ok) {
+        setFormError((data.errors && data.errors[0]) || "Sipariş oluşturulamadı. Lütfen bilgileri kontrol edin.");
+        setSubmitting(false);
+        return;
+      }
+
+      // iyzico hosted form geldiyse: HTML'i çalıştır (3D yönlendirmesi)
+      if (data.checkoutFormContent) {
+        const container = document.createElement("div");
+        container.style.display = "none";
+        container.innerHTML = data.checkoutFormContent;
+        document.body.appendChild(container);
+        container.querySelectorAll("script").forEach((old) => {
+          const s = document.createElement("script");
+          if (old.src) s.src = old.src;
+          else s.textContent = old.textContent;
+          document.body.appendChild(s);
+        });
+        return; // iyzico kendi akışına yönlendirir; sepeti temizleme callback sonrası olur
+      }
+
+      // Ödeme yapılandırılmamış / havale / kapıda: sipariş alındı
+      clearCart();
+      router.push(`/siparis?id=${encodeURIComponent(data.orderId)}`);
+    } catch {
+      setFormError("Bağlantı hatası. Lütfen tekrar deneyin.");
+      setSubmitting(false);
+    }
+  }
 
   if (items.length === 0) {
     return (
@@ -40,11 +113,6 @@ export default function OdemePage() {
         </Link>
       </div>
     );
-  }
-
-  function handleSubmit() {
-    clearCart();
-    router.push("/siparis?id=TP-" + Date.now().toString(36).toUpperCase());
   }
 
   return (
@@ -96,9 +164,10 @@ export default function OdemePage() {
                     type="text"
                     value={address.fullName}
                     onChange={(e) => setAddress({ ...address, fullName: e.target.value })}
-                    className="w-full px-4 py-3 border border-border rounded-xl focus:ring-2 focus:ring-accent/20 focus:border-accent outline-none transition-all"
+                    className={`w-full px-4 py-3 border rounded-xl focus:ring-2 focus:ring-accent/20 focus:border-accent outline-none transition-all ${errors.fullName ? "border-red-400" : "border-border"}`}
                     placeholder="Adınız Soyadınız"
                   />
+                  {errors.fullName && <p className="text-xs text-red-500 mt-1">{errors.fullName}</p>}
                 </div>
                 <div>
                   <label className="block text-sm font-medium text-text-secondary mb-1.5">Telefon *</label>
@@ -106,9 +175,10 @@ export default function OdemePage() {
                     type="tel"
                     value={address.phone}
                     onChange={(e) => setAddress({ ...address, phone: e.target.value })}
-                    className="w-full px-4 py-3 border border-border rounded-xl focus:ring-2 focus:ring-accent/20 focus:border-accent outline-none transition-all"
+                    className={`w-full px-4 py-3 border rounded-xl focus:ring-2 focus:ring-accent/20 focus:border-accent outline-none transition-all ${errors.phone ? "border-red-400" : "border-border"}`}
                     placeholder="0555 123 45 67"
                   />
+                  {errors.phone && <p className="text-xs text-red-500 mt-1">{errors.phone}</p>}
                 </div>
                 <div>
                   <label className="block text-sm font-medium text-text-secondary mb-1.5">E-posta *</label>
@@ -116,9 +186,10 @@ export default function OdemePage() {
                     type="email"
                     value={address.email}
                     onChange={(e) => setAddress({ ...address, email: e.target.value })}
-                    className="w-full px-4 py-3 border border-border rounded-xl focus:ring-2 focus:ring-accent/20 focus:border-accent outline-none transition-all"
+                    className={`w-full px-4 py-3 border rounded-xl focus:ring-2 focus:ring-accent/20 focus:border-accent outline-none transition-all ${errors.email ? "border-red-400" : "border-border"}`}
                     placeholder="ornek@email.com"
                   />
+                  {errors.email && <p className="text-xs text-red-500 mt-1">{errors.email}</p>}
                 </div>
                 <div>
                   <label className="block text-sm font-medium text-text-secondary mb-1.5">İl *</label>
@@ -126,9 +197,10 @@ export default function OdemePage() {
                     type="text"
                     value={address.city}
                     onChange={(e) => setAddress({ ...address, city: e.target.value })}
-                    className="w-full px-4 py-3 border border-border rounded-xl focus:ring-2 focus:ring-accent/20 focus:border-accent outline-none transition-all"
+                    className={`w-full px-4 py-3 border rounded-xl focus:ring-2 focus:ring-accent/20 focus:border-accent outline-none transition-all ${errors.city ? "border-red-400" : "border-border"}`}
                     placeholder="İstanbul"
                   />
+                  {errors.city && <p className="text-xs text-red-500 mt-1">{errors.city}</p>}
                 </div>
                 <div>
                   <label className="block text-sm font-medium text-text-secondary mb-1.5">İlçe *</label>
@@ -136,9 +208,10 @@ export default function OdemePage() {
                     type="text"
                     value={address.district}
                     onChange={(e) => setAddress({ ...address, district: e.target.value })}
-                    className="w-full px-4 py-3 border border-border rounded-xl focus:ring-2 focus:ring-accent/20 focus:border-accent outline-none transition-all"
+                    className={`w-full px-4 py-3 border rounded-xl focus:ring-2 focus:ring-accent/20 focus:border-accent outline-none transition-all ${errors.district ? "border-red-400" : "border-border"}`}
                     placeholder="Kadıköy"
                   />
+                  {errors.district && <p className="text-xs text-red-500 mt-1">{errors.district}</p>}
                 </div>
                 <div className="sm:col-span-2">
                   <label className="block text-sm font-medium text-text-secondary mb-1.5">Adres *</label>
@@ -146,9 +219,10 @@ export default function OdemePage() {
                     value={address.address}
                     onChange={(e) => setAddress({ ...address, address: e.target.value })}
                     rows={3}
-                    className="w-full px-4 py-3 border border-border rounded-xl focus:ring-2 focus:ring-accent/20 focus:border-accent outline-none transition-all resize-none"
+                    className={`w-full px-4 py-3 border rounded-xl focus:ring-2 focus:ring-accent/20 focus:border-accent outline-none transition-all resize-none ${errors.address ? "border-red-400" : "border-border"}`}
                     placeholder="Mahalle, sokak, bina no, daire no..."
                   />
+                  {errors.address && <p className="text-xs text-red-500 mt-1">{errors.address}</p>}
                 </div>
                 <div>
                   <label className="block text-sm font-medium text-text-secondary mb-1.5">Posta Kodu</label>
@@ -172,7 +246,7 @@ export default function OdemePage() {
                 </div>
               </div>
               <button
-                onClick={() => setStep(2)}
+                onClick={goToShipping}
                 className="mt-6 w-full bg-accent hover:bg-accent-hover text-white py-3.5 rounded-xl font-semibold transition-colors"
               >
                 Kargo Seçimine Geç
@@ -270,24 +344,41 @@ export default function OdemePage() {
 
               {payment === "card" && (
                 <div className="border border-border rounded-xl p-4 mb-6 bg-bg-secondary">
-                  <p className="text-sm text-text-muted text-center py-4">
-                    Ödeme entegrasyonu yakında aktif olacak. Şimdilik WhatsApp ile sipariş verebilirsiniz.
+                  <p className="text-sm text-text-muted text-center py-2">
+                    Kart bilgileriniz iyzico güvenli ödeme sayfasında alınır. Online ödeme aktif değilse
+                    siparişiniz alınır ve ödeme için sizinle iletişime geçilir.
                   </p>
+                </div>
+              )}
+
+              {formError && (
+                <div className="flex items-start gap-2 border border-red-200 bg-red-50 text-red-700 rounded-xl p-3 mb-4 text-sm">
+                  <AlertCircle size={18} className="shrink-0 mt-0.5" />
+                  <span>{formError}</span>
                 </div>
               )}
 
               <div className="flex gap-3">
                 <button
                   onClick={() => setStep(2)}
-                  className="flex-1 border border-border hover:bg-bg-secondary py-3.5 rounded-xl font-semibold transition-colors"
+                  disabled={submitting}
+                  className="flex-1 border border-border hover:bg-bg-secondary py-3.5 rounded-xl font-semibold transition-colors disabled:opacity-50"
                 >
                   Geri
                 </button>
                 <button
                   onClick={handleSubmit}
-                  className="flex-1 bg-accent hover:bg-accent-hover text-white py-3.5 rounded-xl font-semibold transition-colors"
+                  disabled={submitting}
+                  className="flex-1 bg-accent hover:bg-accent-hover text-white py-3.5 rounded-xl font-semibold transition-colors disabled:opacity-60 flex items-center justify-center gap-2"
                 >
-                  Siparişi Tamamla
+                  {submitting ? (
+                    <>
+                      <Loader2 size={18} className="animate-spin" />
+                      İşleniyor...
+                    </>
+                  ) : (
+                    "Siparişi Tamamla"
+                  )}
                 </button>
               </div>
             </div>

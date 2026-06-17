@@ -97,7 +97,7 @@ export default async function ProductPage({
           </h1>
 
           <p className="text-sm text-text-muted mb-1">
-            Marka: <Link href="#" className="text-accent hover:underline">{product.brand}</Link>
+            Marka: <Link href={`/urunler?q=${encodeURIComponent(product.brand)}`} className="text-accent hover:underline">{product.brand}</Link>
             {product.sku && <span className="ml-3">SKU: {product.sku}</span>}
           </p>
 
