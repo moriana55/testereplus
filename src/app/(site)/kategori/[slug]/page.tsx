@@ -17,9 +17,25 @@ export async function generateMetadata({
   const { slug } = await params;
   const category = getCategoryBySlug(slug);
   if (!category) return { title: "Kategori Bulunamadı" };
+  const productCount = getProductsByCategory(slug).length;
+  const seoTitle = `${category.name} — Fiyatları ve Modelleri`;
+  const seoDescription =
+    `${category.name} kategorisinde ${productCount} profesyonel ürün. ${category.description}`.slice(0, 300);
   return {
-    title: category.name,
-    description: category.description,
+    title: seoTitle,
+    description: seoDescription,
+    alternates: { canonical: `/kategori/${slug}` },
+    openGraph: {
+      type: "website",
+      title: `${category.name} | Testere Plus`,
+      description: seoDescription,
+      url: `/kategori/${slug}`,
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: `${category.name} | Testere Plus`,
+      description: seoDescription,
+    },
   };
 }
 
@@ -36,8 +52,31 @@ export default async function CategoryPage({
   const breadcrumb = getCategoryBreadcrumb(slug);
   const seoBlurb = getCategorySeo(slug);
 
+  // CollectionPage + ItemList: kategori listesini Google'a yapısal olarak bildirir.
+  const collectionJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    name: category.name,
+    description: category.description,
+    url: `https://testereplus.com/kategori/${slug}`,
+    mainEntity: {
+      "@type": "ItemList",
+      numberOfItems: categoryProducts.length,
+      itemListElement: categoryProducts.slice(0, 30).map((p, i) => ({
+        "@type": "ListItem",
+        position: i + 1,
+        url: `https://testereplus.com/urunler/${p.slug}`,
+        name: p.name,
+      })),
+    },
+  };
+
   return (
     <div className="max-w-7xl mx-auto px-4 py-8">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(collectionJsonLd) }}
+      />
       <BreadcrumbSchema items={[{ name: "Ana Sayfa", url: "/" }, { name: "Ürünler", url: "/urunler" }, ...breadcrumb.map((cat) => ({ name: cat.name, url: `/kategori/${cat.slug}` }))]} />
       <nav className="text-sm text-text-muted mb-6">
         <Link href="/" className="hover:text-accent transition-colors">Ana Sayfa</Link>

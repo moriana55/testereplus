@@ -15,7 +15,7 @@ interface Props {
   reviewCount?: number;
 }
 
-const SITE = "https://testereplus.vercel.app";
+const SITE = "https://testereplus.com";
 
 export function ProductSchema({
   name,

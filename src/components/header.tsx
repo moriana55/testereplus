@@ -60,7 +60,7 @@ export function Header() {
           {/* Logo */}
           <Link href="/" className="shrink-0">
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src="/images/logo.svg" alt="TesterePlus" className="h-12 w-auto" />
+            <img src="/images/logo.svg" alt="Testere Plus — Profesyonel Kesici Takımlar" width={160} height={48} className="h-12 w-auto" />
           </Link>
 
           {/* Search Bar */}

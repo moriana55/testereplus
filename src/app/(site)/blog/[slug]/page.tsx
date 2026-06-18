@@ -65,6 +65,19 @@ export async function generateMetadata({
   return {
     title: post.title,
     description: post.excerpt,
+    alternates: { canonical: `/blog/${slug}` },
+    openGraph: {
+      type: "article",
+      title: post.title,
+      description: post.excerpt,
+      url: `/blog/${slug}`,
+      publishedTime: new Date(post.date).toISOString(),
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: post.title,
+      description: post.excerpt,
+    },
   };
 }
 
@@ -80,8 +93,36 @@ export default async function BlogPostPage({
   const paragraphs = blogContent[slug] || [post.excerpt];
   const otherPosts = posts.filter((p) => p.slug !== slug).slice(0, 3);
 
+  // Article JSON-LD: blog yazısını yapısal veri olarak işaretler (zengin sonuç adayı).
+  const articleJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    headline: post.title,
+    description: post.excerpt,
+    articleSection: post.category,
+    datePublished: new Date(post.date).toISOString(),
+    dateModified: new Date(post.date).toISOString(),
+    mainEntityOfPage: {
+      "@type": "WebPage",
+      "@id": `https://testereplus.com/blog/${slug}`,
+    },
+    author: { "@type": "Organization", name: "Testere Plus" },
+    publisher: {
+      "@type": "Organization",
+      name: "Testere Plus",
+      logo: {
+        "@type": "ImageObject",
+        url: "https://testereplus.com/images/logo.svg",
+      },
+    },
+  };
+
   return (
     <div className="max-w-4xl mx-auto px-4 py-8">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(articleJsonLd) }}
+      />
       <nav className="text-sm text-text-muted mb-6">
         <Link href="/" className="hover:text-accent transition-colors">Ana Sayfa</Link>
         <span className="mx-2 text-border">/</span>
