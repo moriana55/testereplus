@@ -25,7 +25,7 @@ export default async function ProductsPage({
         <span className="text-text-primary font-medium">Tüm Ürünler</span>
       </nav>
 
-      <h1 className="text-2xl font-bold text-text-primary mb-6">Tüm Ürünler</h1>
+      <h1 className="section-rule text-2xl font-bold text-text-primary mb-6">Tüm Ürünler</h1>
 
       <ProductListing products={products} categories={categories} initialSearch={q} />
     </div>

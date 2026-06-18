@@ -137,12 +137,12 @@ export default async function ProductPage({
             )}
             <div className="flex items-baseline gap-2">
               <span className="text-sm text-text-muted">Fiyat:</span>
-              <span className="text-[28px] font-bold text-red-700">{formatPrice(product.price)}</span>
+              <span className="text-[28px] font-extrabold text-text-primary">{formatPrice(product.price)}</span>
               <span className="text-xs text-text-muted ml-1">KDV Dahil</span>
             </div>
             {savings && discount && (
-              <p className="text-sm text-red-600 font-medium mt-0.5">
-                Tasarruf: {formatPrice(savings)} (%{discount})
+              <p className="inline-flex items-center gap-1.5 text-sm text-danger font-semibold mt-1 bg-danger-bg px-2 py-0.5 rounded-md">
+                {formatPrice(savings)} tasarruf · %{discount} indirim
               </p>
             )}
           </div>
@@ -178,14 +178,16 @@ export default async function ProductPage({
 
         {/* Right — Buy Box (3 cols) */}
         <div className="lg:col-span-3">
-          <div className="border border-border rounded-2xl p-5 sticky top-24">
+          <div className="border border-border-strong rounded-2xl p-5 sticky top-24 bg-white shadow-sm">
             {/* Price in buy box */}
             <div className="mb-4">
-              <span className="text-2xl font-bold text-text-primary">{formatPrice(product.price)}</span>
-              <span className="text-[10px] text-text-muted ml-1">KDV Dahil</span>
-              {product.oldPrice && (
-                <span className="text-sm text-text-muted line-through ml-2">{formatPrice(product.oldPrice)}</span>
-              )}
+              <div className="flex items-baseline gap-2">
+                <span className="text-[26px] font-extrabold text-text-primary leading-none">{formatPrice(product.price)}</span>
+                {product.oldPrice && (
+                  <span className="text-sm text-text-muted line-through">{formatPrice(product.oldPrice)}</span>
+                )}
+              </div>
+              <span className="text-[11px] text-text-muted">KDV Dahil</span>
             </div>
 
             {/* Shipping */}

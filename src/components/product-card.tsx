@@ -14,10 +14,23 @@ export function ProductCard({ product }: { product: Product }) {
   const heroImage = product.images?.[0] || product.image;
 
   return (
-    <Link href={`/urunler/${product.slug}`} className="group block">
-      <div className="bg-white border border-border rounded-2xl overflow-hidden hover:shadow-xl hover:shadow-black/8 transition-all duration-300">
+    <Link href={`/urunler/${product.slug}`} className="group block h-full">
+      <div className="bg-white border border-border rounded-2xl overflow-hidden hover:border-accent/40 hover:shadow-lg hover:shadow-black/5 transition-all duration-200 h-full flex flex-col">
         {/* Image */}
-        <div className="relative aspect-square bg-white overflow-hidden flex items-center justify-center p-4">
+        <div className="relative aspect-square bg-bg-secondary/40 overflow-hidden flex items-center justify-center p-4">
+          {/* Badges */}
+          <div className="absolute top-2.5 left-2.5 z-10 flex flex-col gap-1.5 items-start">
+            {discount && (
+              <span className="bg-danger text-white text-[11px] font-bold px-2 py-1 rounded-md shadow-sm">
+                %{discount} İndirim
+              </span>
+            )}
+            {product.inStock && (
+              <span className="bg-success-bg text-success text-[10px] font-semibold px-2 py-0.5 rounded-md border border-success/20">
+                Stokta
+              </span>
+            )}
+          </div>
           {!imgError && heroImage ? (
             <Image
               src={heroImage}
@@ -36,8 +49,8 @@ export function ProductCard({ product }: { product: Product }) {
             <FavoriteButton productId={product.id} size={16} />
           </div>
           {!product.inStock && (
-            <div className="absolute inset-0 bg-white/70 flex items-center justify-center">
-              <span className="bg-gray-100 text-text-muted text-sm px-4 py-2 rounded-lg border border-border">
+            <div className="absolute inset-0 bg-white/75 backdrop-blur-[1px] flex items-center justify-center">
+              <span className="bg-white text-text-secondary text-sm font-medium px-4 py-2 rounded-lg border border-border shadow-sm">
                 Stokta Yok
               </span>
             </div>
@@ -45,32 +58,27 @@ export function ProductCard({ product }: { product: Product }) {
         </div>
 
         {/* Info */}
-        <div className="p-4 pt-3 text-center">
-          <p className="text-sm font-bold text-text-primary mb-1">{product.brand}</p>
-          <h3 className="text-sm text-text-secondary group-hover:text-accent transition-colors line-clamp-2 min-h-[2.5rem] mb-3">
+        <div className="p-4 pt-3 flex flex-col flex-1">
+          <p className="text-xs font-bold uppercase tracking-wide text-accent mb-1">{product.brand}</p>
+          <h3 className="text-sm font-medium text-text-primary group-hover:text-accent transition-colors line-clamp-2 min-h-[2.5rem] mb-3 leading-snug">
             {product.name}
           </h3>
 
           {/* Price */}
-          <div className="flex items-center justify-center gap-3">
-            {discount && (
-              <span className="bg-red-600 text-white text-xs font-bold px-2.5 py-1.5 rounded">
-                %{discount}<br />
-                <span className="text-[10px] font-medium">İndirim</span>
-              </span>
+          <div className="mt-auto">
+            {product.oldPrice && (
+              <p className="text-xs text-text-muted line-through">{formatPrice(product.oldPrice)}</p>
             )}
-            <div className="text-right">
-              {product.oldPrice && (
-                <p className="text-sm text-text-muted line-through">{formatPrice(product.oldPrice)}</p>
-              )}
-              <p className="text-xl font-bold text-text-primary">{formatPrice(product.price)} <span className="text-[10px] font-normal text-text-muted">KDV Dahil</span></p>
-            </div>
+            <p className="text-xl font-extrabold text-text-primary leading-tight">
+              {formatPrice(product.price)}
+              <span className="text-[10px] font-normal text-text-muted ml-1">KDV Dahil</span>
+            </p>
           </div>
 
           {/* CTA */}
-          <button className="w-full mt-4 bg-accent hover:bg-accent-hover text-white text-sm font-bold uppercase tracking-wider py-3 rounded-xl transition-colors">
-            Detaylı İncele
-          </button>
+          <span className="block w-full mt-3 bg-text-primary group-hover:bg-accent text-white text-sm font-semibold text-center py-2.5 rounded-xl transition-colors">
+            İncele
+          </span>
         </div>
       </div>
     </Link>

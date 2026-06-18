@@ -69,10 +69,20 @@ export function ProductListing({ products, categories, activeCategory, initialSe
 
         {/* Brand filter */}
         <div className="bg-white border border-border rounded-2xl p-5">
-          <h3 className="text-sm font-semibold uppercase tracking-wider text-text-primary mb-4">Markalar</h3>
-          <div className="space-y-2">
+          <div className="flex items-center justify-between mb-4">
+            <h3 className="text-sm font-semibold uppercase tracking-wider text-text-primary">Markalar</h3>
+            {selectedBrands.size > 0 && (
+              <button
+                onClick={() => setSelectedBrands(new Set())}
+                className="text-xs text-accent hover:text-accent-hover font-medium"
+              >
+                Temizle
+              </button>
+            )}
+          </div>
+          <div className="space-y-1">
             {brands.map((brand) => (
-              <label key={brand} className="flex items-center gap-2.5 text-sm text-text-secondary cursor-pointer hover:text-text-primary">
+              <label key={brand} className="flex items-center gap-2.5 text-sm text-text-secondary cursor-pointer hover:text-text-primary px-2 py-1.5 -mx-2 rounded-lg hover:bg-bg-secondary transition-colors">
                 <input
                   type="checkbox"
                   checked={selectedBrands.has(brand)}
@@ -88,19 +98,20 @@ export function ProductListing({ products, categories, activeCategory, initialSe
 
       {/* Products grid */}
       <div className="flex-1">
-        <div className="flex items-center justify-between mb-6 gap-4 flex-wrap">
+        <div className="flex items-center justify-between mb-6 gap-4 flex-wrap bg-white border border-border rounded-2xl px-4 py-3">
           <div className="relative flex-1 min-w-[200px] max-w-xs">
             <input
               type="text"
               value={search}
               onChange={(e) => setSearch(e.target.value)}
               placeholder="Ürün ara..."
+              aria-label="Ürün ara"
               className="w-full bg-bg-secondary border border-border rounded-xl pl-4 pr-10 py-2.5 text-sm text-text-primary placeholder:text-text-muted focus:outline-none focus:ring-2 focus:ring-accent/20 focus:border-accent transition-all"
             />
             <Search size={16} className="absolute right-3 top-1/2 -translate-y-1/2 text-text-muted" />
           </div>
           <div className="flex items-center gap-3">
-            <span className="text-sm text-text-muted whitespace-nowrap">{filtered.length} ürün</span>
+            <span className="text-sm text-text-secondary whitespace-nowrap"><strong className="text-text-primary">{filtered.length}</strong> ürün</span>
             <select
               value={sort}
               onChange={(e) => setSort(e.target.value)}
@@ -114,17 +125,19 @@ export function ProductListing({ products, categories, activeCategory, initialSe
         </div>
 
         {filtered.length > 0 ? (
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-5">
             {filtered.map((product) => (
               <ProductCard key={product.id} product={product} />
             ))}
           </div>
         ) : (
           <div className="bg-white border border-border rounded-2xl p-12 text-center">
-            <p className="text-text-muted mb-2">Aramanızla eşleşen ürün bulunamadı.</p>
+            <Search size={40} className="mx-auto text-text-muted mb-4" />
+            <p className="text-text-primary font-medium mb-1">Eşleşen ürün bulunamadı</p>
+            <p className="text-sm text-text-muted mb-4">Farklı bir arama veya filtre deneyin.</p>
             <button
               onClick={() => { setSearch(""); setSelectedBrands(new Set()); }}
-              className="text-accent hover:text-accent-hover text-sm font-medium"
+              className="inline-flex items-center gap-2 bg-accent hover:bg-accent-hover text-white text-sm font-semibold px-5 py-2.5 rounded-xl transition-colors"
             >
               Filtreleri Temizle
             </button>

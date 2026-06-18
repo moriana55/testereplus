@@ -55,7 +55,7 @@ export default function SepetPage() {
 
   return (
     <div className="max-w-6xl mx-auto px-4 py-10">
-      <h1 className="text-2xl font-bold mb-8">Sepetim ({totalItems} ürün)</h1>
+      <h1 className="section-rule text-2xl font-bold mb-8">Sepetim ({totalItems} ürün)</h1>
 
       <div className="grid lg:grid-cols-3 gap-8">
         {/* Cart Items */}

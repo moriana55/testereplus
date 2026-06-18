@@ -3,22 +3,34 @@
 @custom-variant dark (&:where(.dark, .dark *));
 
 :root {
+  /* Surfaces — confident neutral, slight cool graphite undertone */
   --bg-primary: #ffffff;
-  --bg-secondary: #f8f9fa;
-  --bg-dark: #111827;
-  --bg-dark-light: #1f2937;
+  --bg-secondary: #f4f5f7;
+  --bg-dark: #15181e;
+  --bg-dark-light: #20242c;
   --bg-card: #ffffff;
-  --bg-card-hover: #f3f4f6;
-  --text-primary: #111827;
+  --bg-card-hover: #eef0f3;
+  /* Text — graphite scale, high contrast for trust */
+  --text-primary: #14181f;
   --text-secondary: #4b5563;
-  --text-muted: #9ca3af;
+  --text-muted: #8a93a3;
   --text-on-dark: #f9fafb;
+  /* Single strong industrial accent (orange) */
   --accent: #ea580c;
   --accent-hover: #c2410c;
   --accent-light: #fb923c;
-  --accent-bg: #fff7ed;
-  --border: #e5e7eb;
-  --border-light: #f3f4f6;
+  --accent-bg: #fff5ed;
+  /* Borders — a touch firmer for a crisp, engineered feel */
+  --border: #e2e5ea;
+  --border-light: #eef0f3;
+  --border-strong: #cdd2da;
+  /* Semantic */
+  --success: #16a34a;
+  --success-bg: #ecfdf3;
+  --warning: #d97706;
+  --warning-bg: #fffaeb;
+  --danger: #dc2626;
+  --danger-bg: #fef2f2;
 }
 
 @theme inline {
@@ -38,17 +50,54 @@
   --color-accent-bg: var(--accent-bg);
   --color-border: var(--border);
   --color-border-light: var(--border-light);
+  --color-border-strong: var(--border-strong);
+  --color-success: var(--success);
+  --color-success-bg: var(--success-bg);
+  --color-warning: var(--warning);
+  --color-warning-bg: var(--warning-bg);
+  --color-danger: var(--danger);
+  --color-danger-bg: var(--danger-bg);
 }
 
 body {
   background: var(--bg-primary);
   color: var(--text-primary);
-  font-family: "Inter", system-ui, -apple-system, sans-serif;
+  font-family: var(--font-inter), "Inter", system-ui, -apple-system, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
 }
 
 ::selection {
   background: var(--accent);
   color: white;
+}
+
+/* Consistent, accessible keyboard focus across interactive elements */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible,
+[tabindex]:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+  border-radius: 6px;
+}
+
+/* Section eyebrow / heading accent bar */
+.section-rule {
+  position: relative;
+  padding-left: 0.9rem;
+}
+.section-rule::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.15em;
+  bottom: 0.15em;
+  width: 4px;
+  border-radius: 4px;
+  background: var(--accent);
 }
 
 @keyframes fadeSlideUp {

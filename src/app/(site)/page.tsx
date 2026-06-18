@@ -9,8 +9,8 @@ const categories = allCategories.filter((c) => !c.parentSlug);
 const features = [
   { icon: Truck, title: "Ücretsiz Kargo", desc: "Tüm siparişlerde geçerli", color: "text-blue-600 bg-blue-50" },
   { icon: Shield, title: "Orijinal Ürün", desc: "Marka garantili", color: "text-green-600 bg-green-50" },
-  { icon: Headphones, title: "7/24 Destek", desc: "WhatsApp & telefon", color: "text-purple-600 bg-purple-50" },
-  { icon: Award, title: "Hızlı Teslimat", desc: "1-3 iş günü", color: "text-amber-600 bg-amber-50" },
+  { icon: Headphones, title: "7/24 Destek", desc: "WhatsApp & telefon", color: "text-slate-600 bg-slate-100" },
+  { icon: Award, title: "Hızlı Teslimat", desc: "1-3 iş günü", color: "text-accent bg-accent-bg" },
 ];
 
 export default function Home() {
@@ -44,7 +44,7 @@ export default function Home() {
       {/* Categories — card grid */}
       <section className="max-w-7xl mx-auto px-4 py-14">
         <div className="flex items-center justify-between mb-8">
-          <div>
+          <div className="section-rule">
             <h2 className="text-2xl font-bold text-text-primary">Kategoriler</h2>
             <p className="text-sm text-text-muted mt-1">İhtiyacınıza uygun kategoriyi seçin</p>
           </div>
@@ -53,48 +53,35 @@ export default function Home() {
           </Link>
         </div>
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
-          {categories.map((cat, i) => {
-            const colors = [
-              "from-orange-500 to-red-500",
-              "from-blue-500 to-indigo-500",
-              "from-emerald-500 to-teal-500",
-              "from-purple-500 to-pink-500",
-              "from-amber-500 to-orange-500",
-              "from-cyan-500 to-blue-500",
-            ];
-            return (
-              <Link
-                key={cat.slug}
-                href={`/kategori/${cat.slug}`}
-                className="group relative bg-white border border-border rounded-2xl p-5 text-center hover:border-transparent hover:shadow-xl hover:shadow-black/8 transition-all duration-300 overflow-hidden"
-              >
-                <div className={`absolute inset-0 bg-gradient-to-br ${colors[i]} opacity-0 group-hover:opacity-100 transition-opacity duration-300`} />
-                <div className="relative">
-                  <div className="w-14 h-14 bg-bg-secondary rounded-xl mx-auto mb-3 flex items-center justify-center group-hover:bg-white/20 transition-colors">
-                    <svg className="w-7 h-7 text-text-muted group-hover:text-white transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.066 2.573c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.573 1.066c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.066-2.573c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-                    </svg>
-                  </div>
-                  <h3 className="text-sm font-semibold text-text-primary group-hover:text-white transition-colors">
-                    {cat.name}
-                  </h3>
-                  <p className="text-xs text-text-muted group-hover:text-white/70 mt-1 transition-colors">{cat.productCount} ürün</p>
-                </div>
-              </Link>
-            );
-          })}
+          {categories.map((cat) => (
+            <Link
+              key={cat.slug}
+              href={`/kategori/${cat.slug}`}
+              className="group relative bg-white border border-border rounded-2xl p-5 text-center hover:border-accent/40 hover:shadow-lg hover:shadow-black/5 hover:-translate-y-0.5 transition-all duration-200 overflow-hidden"
+            >
+              <span className="absolute inset-x-0 top-0 h-1 bg-accent scale-x-0 group-hover:scale-x-100 origin-left transition-transform duration-300" />
+              <div className="w-14 h-14 bg-bg-secondary rounded-xl mx-auto mb-3 flex items-center justify-center group-hover:bg-accent-bg transition-colors">
+                <svg className="w-7 h-7 text-text-muted group-hover:text-accent transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.066 2.573c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.573 1.066c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.066-2.573c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                </svg>
+              </div>
+              <h3 className="text-sm font-semibold text-text-primary group-hover:text-accent transition-colors">
+                {cat.name}
+              </h3>
+              <p className="text-xs text-text-muted mt-1">{cat.productCount} ürün</p>
+            </Link>
+          ))}
         </div>
       </section>
 
-      {/* Featured products with gradient bg */}
-      <section className="relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-b from-bg-secondary via-white to-bg-secondary" />
+      {/* Featured products */}
+      <section className="relative overflow-hidden bg-bg-secondary border-y border-border">
         <div className="max-w-7xl mx-auto px-4 py-14 relative">
           <div className="flex items-center justify-between mb-8">
             <div className="flex items-center gap-3">
-              <div className="w-10 h-10 bg-red-50 rounded-xl flex items-center justify-center">
-                <Zap size={20} className="text-red-500" />
+              <div className="w-10 h-10 bg-danger-bg rounded-xl flex items-center justify-center">
+                <Zap size={20} className="text-danger" />
               </div>
               <div>
                 <h2 className="text-2xl font-bold text-text-primary">Fırsat Ürünleri</h2>

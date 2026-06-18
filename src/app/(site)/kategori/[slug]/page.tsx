@@ -57,10 +57,13 @@ export default async function CategoryPage({
         ))}
       </nav>
 
-      <div className="bg-gradient-to-r from-bg-dark to-bg-dark-light rounded-2xl p-8 mb-8">
-        <h1 className="text-2xl md:text-3xl font-bold text-white mb-2">{category.name}</h1>
-        <p className="text-gray-400">{category.description}</p>
-        <p className="text-sm text-gray-500 mt-2">{categoryProducts.length} ürün</p>
+      <div className="relative bg-gradient-to-r from-bg-dark to-bg-dark-light rounded-2xl p-8 mb-8 overflow-hidden border-l-4 border-accent">
+        <div className="absolute -right-16 -top-16 w-64 h-64 bg-accent/10 rounded-full blur-3xl pointer-events-none" />
+        <div className="relative">
+          <h1 className="text-2xl md:text-3xl font-bold text-white mb-2">{category.name}</h1>
+          <p className="text-gray-400 max-w-2xl">{category.description}</p>
+          <p className="text-sm font-medium text-accent-light mt-3">{categoryProducts.length} ürün listeleniyor</p>
+        </div>
       </div>
 
       <ProductListing products={categoryProducts} categories={categories} activeCategory={slug} />
